@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-public class Photo {
+public class PhotoManager {
 
     private static byte[] imageByte;
     public static Image DEFAULT_IMAGE;

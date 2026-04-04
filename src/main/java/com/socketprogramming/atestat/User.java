@@ -26,15 +26,15 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
+        return email.getPersonalEmail();
     }
 
 
-    public int getPhoneNumber() {
-        return phoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber.getPersonalPhoneNumber();
     }
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber.setPersonalPhoneNumber(phoneNumber);
     }
 
 
@@ -55,18 +55,18 @@ public class User {
     //TODO gasit metoda pentru a avea ID unic
     private String name;
     private String password;
-    private int phoneNumber;
-    private final String email;
+    private PhoneNumber phoneNumber;
+    private final Email email;
     private Image photoImage;
     private ArrayList<Review> reviews;
     //TODO add join date
 
-    User(String name, String password, String email, int phoneNumber){
+    User(String name, String password, String email, String phoneNumber){
         this.name = name;
         this.password = password;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.photoImage = Photo.DEFAULT_IMAGE;
+        this.email = new Email(email, null, null);
+        this.phoneNumber = new PhoneNumber(phoneNumber, null, null);
+        this.photoImage = PhotoManager.DEFAULT_IMAGE;
     }
 
 
