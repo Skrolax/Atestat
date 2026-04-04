@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.socketprogramming.atestat.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.MainController">
+   <center>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="safadsfa" wrappingWidth="159.87818145751953" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <HBox prefHeight="99.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="158.0" prefWidth="514.0">
+               <children>
+                  <VBox prefHeight="34.0" prefWidth="514.0" />
+                  <ComboBox fx:id="servicesComboBox" prefHeight="17.0" prefWidth="514.0" promptText="What service are you looking for today?" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
