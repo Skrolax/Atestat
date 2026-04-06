@@ -96,25 +96,21 @@ public class MainController implements Initializable {
         Label customerServicePhoneNumber = new Label(company.getBusinessPhoneNumber());
         Hyperlink websiteLink = new Hyperlink(company.getWebsiteLink());
         Label moreDetails = new Label("Click for more details and reviews");
-        Label test = new Label("sugeti");
 
-        rightContainer.getChildren().addAll(companyName, companyAddress, companyServices, customerServiceEmail,customerServicePhoneNumber, websiteLink, moreDetails, test);
-
+        rightContainer.getChildren().addAll(companyName, companyAddress, companyServices, customerServiceEmail,customerServicePhoneNumber, websiteLink, moreDetails);
         mainContainer.getChildren().addAll(leftContainer, rightContainer);
 
         mainContainer.setOnMouseClicked(mouseEvent -> {
             disableCompanyContainerVBox();
-            companyProfilePageVBox = createCompanyProfilePage(mainContainer);
-            companyContainerScrollPane.setContent(companyProfilePageVBox);
+
             try {
                 reviews.clear();
                 reviews = DatabaseAccess.getCompanyReviews(company.getCompanyID());
-                for(Review r : reviews){
-                    System.out.println(r.toString());
-                }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+            companyProfilePageVBox = createCompanyProfilePage(mainContainer);
+            companyContainerScrollPane.setContent(companyProfilePageVBox);
         });
 
         return mainContainer;
@@ -165,10 +161,10 @@ public class MainController implements Initializable {
         servicesComboBox.getItems().setAll(services);
         servicesComboBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
 
+            enableCompanyContainerVBox();
             if(newValue != null){
                 try {
                     companyContainerVBox.getChildren().clear();
-                    enableCompanyContainerVBox();
                     companies = DatabaseAccess.getCompaniesBasedOnService(newValue.getServiceID());
 
                 } catch (SQLException e) {
@@ -179,9 +175,8 @@ public class MainController implements Initializable {
             companyContainer = new ArrayList<>();
             companyContainerScrollPane.setContent(companyContainerVBox);
             for(Company company : companies){
-                companyContainer.add(createCompanyContainer(company));
+                companyContainerVBox.getChildren().add(createCompanyContainer(company));
             }
-            companyContainerVBox.getChildren().addAll(companyContainer);
             companyContainerScrollPane.setContent(companyContainerVBox);
         });
 
