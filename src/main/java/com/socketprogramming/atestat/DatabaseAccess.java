@@ -35,6 +35,20 @@ public class DatabaseAccess {
 
     //REVIEWS
 
+    public static User getUser(int userID) throws SQLException {
+        User user = null;
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM user WHERE UserID = ?"
+        );
+        preparedStatement.setInt(1, userID);
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            user = new User(userID, resultSet.getString("Name"), resultSet.getString("password"), resultSet.getString("Email"), resultSet.getBytes("Photo_Byte"));
+
+        }
+        return user;
+    }
+
     public static void addReview(int userID, int companyID, String reviewText, float rating, boolean isAnonymous) throws SQLException {
         preparedStatement = connection.prepareStatement(
                 "INSERT INTO review (UserID, CompanyID, Review_Text, Rating, Is_Anonymous)" +
@@ -54,7 +68,7 @@ public class DatabaseAccess {
         preparedStatement.setInt(1, reviewID);
         update = preparedStatement.executeUpdate();
     }
-    public static ArrayList<Review> getUserReviews(int userID) throws SQLException {
+ /*   public static ArrayList<Review> getUserReviews(int userID) throws SQLException {
         ArrayList<Review> reviews = new ArrayList<>();
         preparedStatement = connection.prepareStatement(
                 "SELECT * FROM view_all_reviews WHERE UserID = ?"
@@ -73,23 +87,28 @@ public class DatabaseAccess {
             reviews.add(review);
         }
         return reviews;
-    }
+    }*/
+
     public static ArrayList<Review> getCompanyReviews(int companyID) throws SQLException {
         ArrayList<Review> reviews = new ArrayList<>();
         preparedStatement = connection.prepareStatement(
-                "SELECT * FROM all_reviews WHERE CompanyID = ?"
+                "SELECT * FROM view_company_reviews WHERE CompanyID = ?"
         );
         preparedStatement.setInt(1, companyID);
         resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
             Review review = new Review(
+                    resultSet.getInt("ReviewID"),
                     resultSet.getInt("UserID"),
+                    resultSet.getString("User_Name"),
                     companyID,
-                    resultSet.getString("Review_text"),
+                    resultSet.getString("Company_Name"),
+                    resultSet.getString("Review_Text"),
                     resultSet.getFloat("Rating"),
-                    resultSet.getBoolean("Is_Anonymous")
+                    resultSet.getBoolean("Is_Anonymous"),
+                    resultSet.getTimestamp("Review_DateTime").toLocalDateTime(),
+                    resultSet.getBytes("User_Photo")
             );
-            review.setReviewID(resultSet.getInt("ReviewID"));
             reviews.add(review);
         }
         return reviews;
@@ -127,19 +146,11 @@ public class DatabaseAccess {
                     resultSet.getString("Website_Link"),
                     resultSet.getDate("Company_Founded_Date").toLocalDate()
             );
+            company.setCompanyID(resultSet.getInt("CompanyID"));
             companies.add(company);
         }
         return companies;
     }
-
-    /*String name,
-    String businessEmail,
-    String customerServiceEmail,
-    String businessPhoneNumber,
-    String customerServicePhoneNumber,
-    String address,
-    String websiteLink,
-    LocalDate companyFoundedDate*/
 
     public static ArrayList<Service> getServices() throws SQLException {
         ArrayList<Service> services = new ArrayList<>();

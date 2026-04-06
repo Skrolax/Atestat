@@ -8,9 +8,9 @@ import java.util.ArrayList;
 public class User {
 
     public int getID() {
-        return ID;
+        return userID;
     }
-    public void setID(int ID){this.ID = ID;}
+    public void setID(int ID){this.userID = ID;}
     public String getName() {
         return name;
     }
@@ -37,7 +37,7 @@ public class User {
     }
 
 
-    private int ID;
+    private int userID;
     private String name;
     private String password;
     private String email;
@@ -45,11 +45,12 @@ public class User {
     private byte[] photo;
     private ArrayList<Review> reviews;
 
-    User(String name, String password, String email){
+    User(int userID, String name, String password, String email, byte[] photo){
+        this.userID = userID;
         this.name = name;
         this.password = password;
         this.email = email;
-        this.photo = PhotoManager.DEFAULT_IMAGE;
+        this.photo = photo;
     }
 
 

@@ -1,6 +1,7 @@
 package com.socketprogramming.atestat;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class Review {
 
@@ -8,11 +9,15 @@ public class Review {
 
     private int reviewID;
     private int userID;
+    private String userName;
     private int companyID;
+
+    private String companyName;
     private String reviewText;
     private float rating;
     private LocalDateTime reviewDateTime;
     private boolean isAnonymous;
+    private byte[] userPhoto;
 
     public int getReviewID() {
         return reviewID;
@@ -56,19 +61,40 @@ public class Review {
     public void setAnonymous(boolean anonymous) {
         isAnonymous = anonymous;
     }
+    public byte[] getUserPhoto() {
+        return userPhoto;
+    }
+    public void setUserPhoto(byte[] userPhoto) {
+        this.userPhoto = userPhoto;
+    }
+    public String getCompanyName() {
+        return companyName;
+    }
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
 
-    Review(int userID, int companyID, String reviewText, float rating, boolean isAnonymous){
+
+
+    Review(int reviewID, int userID, String userName, int companyID, String companyName, String reviewText, float rating, boolean isAnonymous, LocalDateTime reviewDateTime, byte[] photo){
+        this.reviewID = reviewID;
         this.userID = userID;
+        this.userName = userName;
         this.companyID = companyID;
+        this.companyName = companyName;
         this.reviewText = reviewText;
         this.rating = rating;
         this.isAnonymous = isAnonymous;
+        this.userPhoto = photo;
+        this.reviewDateTime = reviewDateTime;
     }
 
-    @Override
-    public String toString(){
-        return reviewID + " " + userID + " " + companyID + " " + reviewText + " " + rating + " " + isAnonymous;
-    }
 
 }
