@@ -7,6 +7,7 @@ module com.socketprogramming.atestat {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens com.socketprogramming.atestat to javafx.fxml;
     exports com.socketprogramming.atestat;

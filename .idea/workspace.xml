@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="Modified the User class by adding a dedicated class for the emails and phone numbers, also added a company class which will contain all its details.">
+    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="Started working on the main app itself. Firstly added a Combobox which allows users to select multiple menus based on what kind of service the customer is looking for">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyServices.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Email.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/PhoneNumber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/PhotoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/PhotoManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,18 +35,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Skrolax"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Skrolax&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Skrolax/Atestat.git",
-    "accountId": "97099468-cc7c-42dc-8cd8-e39db9ab2c8c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Skrolax/Atestat.git&quot;,
+    &quot;accountId&quot;: &quot;97099468-cc7c-42dc-8cd8-e39db9ab2c8c&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -46,9 +54,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="3BtKYwofiZz2R4J1XZXBscN0DLR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -58,15 +66,43 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;22&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nedel/OneDrive/Desktop/Programare/The Real Deal/Atestat/lib/mysql-connector-j-9.6.0.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="com.socketprogramming.atestat.Main" />
+      <module name="Atestat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.socketprogramming.atestat.Server" />
+      <module name="Atestat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Client" />
+    </list>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -100,13 +136,22 @@
       <option name="project" value="LOCAL" />
       <updated>1775311256965</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Started working on the main app itself. Firstly added a Combobox which allows users to select multiple menus based on what kind of service the customer is looking for">
+      <option name="closed" value="true" />
+      <created>1775315136811</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775315136811</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit - test" />
     <MESSAGE value="Created the Review Class, followed by Photo and then User class" />
     <MESSAGE value="Modified the User class by adding a dedicated class for the emails and phone numbers, also added a company class which will contain all its details." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified the User class by adding a dedicated class for the emails and phone numbers, also added a company class which will contain all its details." />
+    <MESSAGE value="Started working on the main app itself. Firstly added a Combobox which allows users to select multiple menus based on what kind of service the customer is looking for" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started working on the main app itself. Firstly added a Combobox which allows users to select multiple menus based on what kind of service the customer is looking for" />
   </component>
 </project>

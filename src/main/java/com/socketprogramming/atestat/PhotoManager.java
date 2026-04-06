@@ -10,7 +10,7 @@ import java.nio.file.Files;
 public class PhotoManager {
 
     private static byte[] imageByte;
-    public static Image DEFAULT_IMAGE;
+    public static byte[] DEFAULT_IMAGE;
 
     //Trebuie să găsesc ceva default image;
     //Trebuie ca DEFAULT_IMAGE sa fie pastrata local, pe server
@@ -20,11 +20,11 @@ public class PhotoManager {
         imageByte = Files.readAllBytes(file.toPath());
     }
 
-    public static Image getImage(){
+  /*  public static byte[] getImage(){
         if(imageByte.length == 0){
             return DEFAULT_IMAGE;
         }
         return new Image(new ByteArrayInputStream(imageByte));
-    }
+    }*/
 
 }

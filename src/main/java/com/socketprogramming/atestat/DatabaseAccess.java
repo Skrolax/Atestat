@@ -1,0 +1,161 @@
+package com.socketprogramming.atestat;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+public class DatabaseAccess {
+
+    private Statement statement;
+    private static Connection connection;
+    private static PreparedStatement preparedStatement;
+    private static ResultSet resultSet;
+    private static int update;
+
+    // DATABASE CONNECTIONS
+
+    public static void startConnection() throws SQLException {
+
+        connection = DriverManager.getConnection(
+                "jdbc:mysql://127.0.0.1:3306/atestatdb",
+                "root",
+                "NoPasswordReally"
+        );
+    }
+    public static void closeConnection() throws SQLException {
+        connection.close();
+    }
+
+    // LOGIN AND REGISTER
+
+    /*public static User loginUser(){
+
+    }*/
+
+
+
+    //REVIEWS
+
+    public static void addReview(int userID, int companyID, String reviewText, float rating, boolean isAnonymous) throws SQLException {
+        preparedStatement = connection.prepareStatement(
+                "INSERT INTO review (UserID, CompanyID, Review_Text, Rating, Is_Anonymous)" +
+                        "VALUES (?,?,?,?,?)"
+        );
+        preparedStatement.setInt(1, userID);
+        preparedStatement.setInt(2, companyID);
+        preparedStatement.setString(3, reviewText);
+        preparedStatement.setFloat(4, rating);
+        preparedStatement.setBoolean(5, isAnonymous);
+        update = preparedStatement.executeUpdate();
+    }
+    public static void removeReview(int reviewID) throws SQLException {
+        preparedStatement = connection.prepareStatement(
+                "DELETE FROM review WHERE ReviewID = ?"
+        );
+        preparedStatement.setInt(1, reviewID);
+        update = preparedStatement.executeUpdate();
+    }
+    public static ArrayList<Review> getUserReviews(int userID) throws SQLException {
+        ArrayList<Review> reviews = new ArrayList<>();
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM view_all_reviews WHERE UserID = ?"
+        );
+        preparedStatement.setInt(1, userID);
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            Review review = new Review(
+                    userID,
+                    resultSet.getInt("CompanyID"),
+                    resultSet.getString("Review_text"),
+                    resultSet.getFloat("Rating"),
+                    resultSet.getBoolean("Is_Anonymous")
+            );
+            review.setReviewID(resultSet.getInt("ReviewID"));
+            reviews.add(review);
+        }
+        return reviews;
+    }
+    public static ArrayList<Review> getCompanyReviews(int companyID) throws SQLException {
+        ArrayList<Review> reviews = new ArrayList<>();
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM all_reviews WHERE CompanyID = ?"
+        );
+        preparedStatement.setInt(1, companyID);
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            Review review = new Review(
+                    resultSet.getInt("UserID"),
+                    companyID,
+                    resultSet.getString("Review_text"),
+                    resultSet.getFloat("Rating"),
+                    resultSet.getBoolean("Is_Anonymous")
+            );
+            review.setReviewID(resultSet.getInt("ReviewID"));
+            reviews.add(review);
+        }
+        return reviews;
+    }
+
+
+    public static ArrayList<Company> getCompaniesBasedOnService(int serviceID) throws SQLException {
+        preparedStatement = connection.prepareStatement(
+                " SELECT * FROM view_companies \n" +
+                        "\n" +
+                        "WHERE CompanyID IN (\n" +
+                        "\n" +
+                        "    SELECT cs.CompanyID \n" +
+                        "\n" +
+                        "    FROM companyservices cs\n" +
+                        "\n" +
+                        "    JOIN services s ON cs.ServiceID = s.ServiceID\n" +
+                        "\n" +
+                        "    WHERE s.ServiceID = ?\n" +
+                        "\n" +
+                        ")"
+        );
+        preparedStatement.setInt(1, serviceID);
+        resultSet = preparedStatement.executeQuery();
+        ArrayList<Company> companies = new ArrayList<>();
+        while(resultSet.next()){
+            Company company = new Company(
+                    resultSet.getString("Company_Name"),
+                    resultSet.getString("Services_Offered"),
+                    resultSet.getString("Business_Email"),
+                    resultSet.getString("Customer_Service_Email"),
+                    resultSet.getString("Business_Phone_Number"),
+                    resultSet.getString("Customer_Service_Phone_Number"),
+                    resultSet.getString("Address"),
+                    resultSet.getString("Website_Link"),
+                    resultSet.getDate("Company_Founded_Date").toLocalDate()
+            );
+            companies.add(company);
+        }
+        return companies;
+    }
+
+    /*String name,
+    String businessEmail,
+    String customerServiceEmail,
+    String businessPhoneNumber,
+    String customerServicePhoneNumber,
+    String address,
+    String websiteLink,
+    LocalDate companyFoundedDate*/
+
+    public static ArrayList<Service> getServices() throws SQLException {
+        ArrayList<Service> services = new ArrayList<>();
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM view_all_services"
+        );
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            services.add(new Service(resultSet.getInt("ServiceID"), resultSet.getString("Service")));
+        }
+        return services;
+    }
+
+    /*public static ArrayList<String> getCompanyServices(int companyID){
+
+    }*/
+
+
+}
