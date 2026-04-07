@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="Much work on the UI">
+    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="Reviews are displayed correctly">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompaniesPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/companies_page.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -153,8 +159,27 @@
       <option name="project" value="LOCAL" />
       <updated>1775506551379</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Reviews are displayed correctly">
+      <option name="closed" value="true" />
+      <created>1775506857735</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1775506857735</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit - test" />
@@ -163,6 +188,7 @@
     <MESSAGE value="Started working on the main app itself. Firstly added a Combobox which allows users to select multiple menus based on what kind of service the customer is looking for" />
     <MESSAGE value="Created database, connected to it, did some queries... i did it all" />
     <MESSAGE value="Much work on the UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Much work on the UI" />
+    <MESSAGE value="Reviews are displayed correctly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reviews are displayed correctly" />
   </component>
 </project>
