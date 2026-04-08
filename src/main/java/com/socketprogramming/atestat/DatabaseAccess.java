@@ -31,24 +31,6 @@ public class DatabaseAccess {
 
     }*/
 
-
-
-    //REVIEWS
-
-    public static User getUser(int userID) throws SQLException {
-        User user = null;
-        preparedStatement = connection.prepareStatement(
-                "SELECT * FROM user WHERE UserID = ?"
-        );
-        preparedStatement.setInt(1, userID);
-        resultSet = preparedStatement.executeQuery();
-        while(resultSet.next()){
-            user = new User(userID, resultSet.getString("Name"), resultSet.getString("password"), resultSet.getString("Email"), resultSet.getBytes("Photo_Byte"));
-
-        }
-        return user;
-    }
-
     public static void addReview(int userID, int companyID, String reviewText, float rating, boolean isAnonymous) throws SQLException {
         preparedStatement = connection.prepareStatement(
                 "INSERT INTO review (UserID, CompanyID, Review_Text, Rating, Is_Anonymous)" +
@@ -68,26 +50,7 @@ public class DatabaseAccess {
         preparedStatement.setInt(1, reviewID);
         update = preparedStatement.executeUpdate();
     }
- /*   public static ArrayList<Review> getUserReviews(int userID) throws SQLException {
-        ArrayList<Review> reviews = new ArrayList<>();
-        preparedStatement = connection.prepareStatement(
-                "SELECT * FROM view_all_reviews WHERE UserID = ?"
-        );
-        preparedStatement.setInt(1, userID);
-        resultSet = preparedStatement.executeQuery();
-        while(resultSet.next()){
-            Review review = new Review(
-                    userID,
-                    resultSet.getInt("CompanyID"),
-                    resultSet.getString("Review_text"),
-                    resultSet.getFloat("Rating"),
-                    resultSet.getBoolean("Is_Anonymous")
-            );
-            review.setReviewID(resultSet.getInt("ReviewID"));
-            reviews.add(review);
-        }
-        return reviews;
-    }*/
+
 
     public static ArrayList<Review> getCompanyReviews(int companyID) throws SQLException {
         ArrayList<Review> reviews = new ArrayList<>();
@@ -164,9 +127,49 @@ public class DatabaseAccess {
         return services;
     }
 
-    /*public static ArrayList<String> getCompanyServices(int companyID){
+    public static ArrayList<Review> getUserReviews(int userID) throws SQLException {
+        ArrayList<Review> reviews = new ArrayList<>();
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM view_user_review WHERE UserID = ?"
+        );
+        preparedStatement.setInt(1, userID);
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            Review review = new Review(
+                    resultSet.getInt("ReviewID"),
+                    userID,
+                    resultSet.getString("User_Name"),
+                    resultSet.getInt("CompanyID"),
+                    resultSet.getString("Company_Name"),
+                    resultSet.getString("Review_Text"),
+                    resultSet.getFloat("Rating"),
+                    resultSet.getBoolean("Is_Anonymous"),
+                    resultSet.getTimestamp("Review_DateTime").toLocalDateTime(),
+                    resultSet.getBytes("User_Photo")
+            );
+            reviews.add(review);
+        }
+        return reviews;
+    }
 
-    }*/
+    public static User getUser(int userID) throws SQLException {
+        User user = null;
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM user WHERE UserID = ?"
+        );
+        preparedStatement.setInt(1, userID);
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            user = new User(
+                    userID,
+                    resultSet.getString("Name"),
+                    resultSet.getString("Password"),
+                    resultSet.getString("Email"),
+                    resultSet.getBytes("Photo_Byte")
+            );
+        }
+        return user;
+    }
 
 
 }

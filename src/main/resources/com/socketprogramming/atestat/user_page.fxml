@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="userPageVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.UserPageController">
+    <children>
+        <HBox fx:id="userContainerHBox" prefHeight="129.0" prefWidth="600.0">
+            <children>
+                <VBox fx:id="leftUserContainerVBox" prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <ImageView fx:id="leftUserContainerImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </VBox>
+                <VBox fx:id="rightUserContainerVBox" prefHeight="168.0" prefWidth="406.0" />
+            </children></HBox>
+        <ScrollPane fx:id="userReviewScrollPane" prefHeight="274.0" prefWidth="600.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="598.0">
+                    <children>
+                        <VBox fx:id="userReviewVBox" prefHeight="273.0" prefWidth="600.0" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>

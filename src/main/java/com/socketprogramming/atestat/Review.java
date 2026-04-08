@@ -81,8 +81,6 @@ public class Review {
     }
 
 
-
-
     Review(int reviewID, int userID, String userName, int companyID, String companyName, String reviewText, float rating, boolean isAnonymous, LocalDateTime reviewDateTime, byte[] photo){
         this.reviewID = reviewID;
         this.userID = userID;
@@ -95,6 +93,5 @@ public class Review {
         this.userPhoto = photo;
         this.reviewDateTime = reviewDateTime;
     }
-
 
 }

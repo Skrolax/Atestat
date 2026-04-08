@@ -60,8 +60,6 @@ public class MainController implements Initializable {
         }
 
         initializeCompanyContainerScrollPane();
-
-
         initializeServicesChoiceBox();
 
     }

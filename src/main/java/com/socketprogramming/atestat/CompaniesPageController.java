@@ -48,7 +48,7 @@ public class CompaniesPageController implements Initializable {
         VBox leftContainer = new VBox();
         VBox rightContainer = new VBox();
 
-        ImageView imageView = new ImageView(new Image(Objects.requireNonNull(UI.class.getResourceAsStream("/photos/images.png"))));
+        ImageView imageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/photos/images.png"))));
         Rating rating = new Rating(5);
         leftContainer.getChildren().addAll(imageView, rating);
 
@@ -77,7 +77,7 @@ public class CompaniesPageController implements Initializable {
             Parent view = loader.load();
 
             CompanyPageController companyPageController = loader.getController();
-            companyPageController.setCompanyPage(this.mainController, company, createCompanyContainer(company));
+            companyPageController.setCompanyPage(this.mainController, company);
             mainController.appBorderPane.setCenter(view);
         } catch (IOException e) {
             e.printStackTrace();

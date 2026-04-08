@@ -35,12 +35,20 @@ public class User {
     public ArrayList<Review> getReviews() {
         return reviews;
     }
+    public LocalDate getJoinDate() {
+        return joinDate;
+    }
+    public void setJoinDate(LocalDate joinDate) {
+        this.joinDate = joinDate;
+    }
 
 
     private int userID;
     private String name;
     private String password;
     private String email;
+
+
     private LocalDate joinDate;
     private byte[] photo;
     private ArrayList<Review> reviews;

@@ -20,11 +20,11 @@ public class PhotoManager {
         imageByte = Files.readAllBytes(file.toPath());
     }
 
-  /*  public static byte[] getImage(){
-        if(imageByte.length == 0){
-            return DEFAULT_IMAGE;
+  /*public static Image getImage(byte[] photoByte){
+        if(photoByte == null){
+            return new Image();
         }
-        return new Image(new ByteArrayInputStream(imageByte));
+        return new Image(new ByteArrayInputStream(photoByte));
     }*/
 
 }

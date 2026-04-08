@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -10,7 +11,13 @@
    <children>
       <HBox fx:id="companyContainerHBox" prefHeight="129.0" prefWidth="600.0">
          <children>
-            <Label fx:id="textLabel" text="damada" />
+            <VBox fx:id="leftCompanyContainerVBox" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="leftCompanyContainerImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="leftContainerRatingLabel" alignment="CENTER" prefHeight="18.0" prefWidth="205.0" text="Label" textAlignment="CENTER" />
+               </children>
+            </VBox>
+            <VBox fx:id="rightCompanyContainerVBox" prefHeight="168.0" prefWidth="406.0" />
          </children></HBox>
       <ScrollPane fx:id="companyReviewScrollPane" prefHeight="274.0" prefWidth="600.0">
         <content>
