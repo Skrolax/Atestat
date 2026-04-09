@@ -67,6 +67,11 @@ public class CompaniesPageController implements Initializable {
             loadCompanyPage(company);
         });
 
+        //CSS
+        mainContainer.getStyleClass().add("company-container");
+        leftContainer.getStyleClass().add("left-company-container");
+        rightContainer.getStyleClass().add("right-company-container");
+
         return mainContainer;
     }
 
@@ -90,7 +95,8 @@ public class CompaniesPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        companiesScrollPane.getStylesheets().add(getClass().getResource("/css/companiesPageStylesheet.css").toExternalForm());
+        companiesVBox.setId("companies-vbox");
     }
 
     public void setCompanies(ArrayList<Company> companies) throws IOException {

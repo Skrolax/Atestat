@@ -1,5 +1,6 @@
 package com.socketprogramming.atestat;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,6 +30,8 @@ public class MainController implements Initializable {
 
     @FXML
     BorderPane appBorderPane;
+    @FXML
+    ImageView homeIconImageView;
 
 
     ScrollPane companyContainerScrollPane;
@@ -59,10 +62,14 @@ public class MainController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        initializeCompanyContainerScrollPane();
         initializeServicesChoiceBox();
-
+        Platform.runLater(() -> appBorderPane.requestFocus());
+        appBorderPane.setOnMouseClicked(event -> {
+            appBorderPane.requestFocus();
+        });
     }
+
+
 
     private void initializeCompanyContainerScrollPane(){
         companyContainerScrollPane = new ScrollPane();

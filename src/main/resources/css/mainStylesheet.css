@@ -1,0 +1,59 @@
+/* --- The Main ComboBox Button --- */
+.combo-box {
+    -fx-background-color: white !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-color: #AAAAAA !important; /* Back to grey */
+    -fx-border-width: 1px !important;
+    /*-fx-border-radius: 5px;*/
+    /*-fx-background-radius: 5px;*/
+    -fx-font-family: "Candara";
+    -fx-font-size: 14px;
+}
+
+/* Remove the default focus glow */
+.combo-box:focused {
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+}
+
+
+.combo-box:showing {
+    -fx-background-color: #EBECF0 !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-color: #AAAAAA !important;
+}
+
+.combo-box:hover {
+    -fx-background-color: #F2F3F5 !important; /* A very subtle light grey */
+    -fx-border-color: #999999 !important;     /* Slightly darker border on hover */
+    -fx-cursor: hand;                         /* Optional: makes the cursor a hand/pointer */
+}
+
+
+/* --- The Dropdown Menu Selection --- */
+/* This handles the hover and selection colors */
+.combo-box-popup .list-view .list-cell:filled:selected,
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #828282 !important; /* Your Blue */
+    -fx-text-fill: white !important;
+}
+
+/* Default state of items in the list */
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: white !important;
+    -fx-text-fill: #333333 !important;
+    -fx-padding: 8px 12px;
+}
+
+/* The background of the list container itself */
+.combo-box-popup .list-view {
+    -fx-background-color: white !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-color: #ddd !important;
+    -fx-border-width: 1px !important;
+}
+
+/* Fix for the little arrow button background */
+.combo-box .arrow-button {
+    -fx-background-color: transparent !important;
+}
