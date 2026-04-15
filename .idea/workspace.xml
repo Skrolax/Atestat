@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="Much stylization">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/review_container.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/test.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/companyPageStylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/ReviewContainerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/reviewContainerStylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/companiesPageStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/companiesPageStylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/review_container.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/review_container.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/companyPageStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/companyPageStylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -193,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775740032692</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Much stylization">
+      <option name="closed" value="true" />
+      <created>1776256417620</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1776256417620</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -10,7 +10,7 @@
 #companyReviewScrollPane {
     /* Set the border to match your background color */
     -fx-border-color: #2b2b2b;
-    -fx-background-color: #2b2b2b;
+    -fx-background-color: #121212;
 
     /* Ensure no weird inner white lines */
     -fx-background-insets: 0;
@@ -23,8 +23,78 @@
 }
 
 #companyReviewVBox {
-    -fx-background-color: #2b2b2b;
+    -fx-background-color: #121212;
 }
 
+#reviewTitleLabel{
+    -fx-background-color: #121212;
+}
+
+.label {
+    -fx-font-family: "Candara";
+}
+
+
+#leftContainerRatingLabel {
+    -fx-text-fill: #ffcc00; /* Gold */
+    -fx-font-family: "Candara";
+    -fx-font-weight: bold;
+}
+
+* Target the specific scrollpane by ID */
+#companyReviewScrollPane {
+    -fx-background-color: #1a1a1a;
+    -fx-background: #1a1a1a;
+    -fx-border-color: #333333; /* Subtle border at the top of the scroll area */
+    -fx-border-width: 1 0 0 0;
+}
+
+#companyReviewScrollPane .viewport {
+    -fx-background-color: #1a1a1a;
+}
+
+/* The Vertical Scrollbar Track (The background part) */
+#companyReviewScrollPane .scroll-bar:vertical {
+    -fx-background-color: #2b2b2b; /* Dark Grey track */
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-width: 12; /* Slimmer profile */
+}
+
+/* The Thumb (The actual bar you grab) */
+#companyReviewScrollPane .scroll-bar:vertical .thumb {
+    -fx-background-color: #4a4a4a; /* Medium Grey bar */
+    -fx-background-insets: 2;
+    -fx-background-radius: 8;
+}
+
+/* When you hover over the bar */
+#companyReviewScrollPane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #5a5a5a; /* Slightly lighter grey */
+}
+
+/* When you click and drag */
+#companyReviewScrollPane .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: #6a6a6a;
+}
+
+/* Cleaning up the UI by removing the top/bottom arrow buttons */
+#companyReviewScrollPane .scroll-bar .increment-button,
+#companyReviewScrollPane .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0 0 5 0;
+}
+
+#companyReviewScrollPane .scroll-bar .increment-arrow,
+#companyReviewScrollPane .scroll-bar .decrement-arrow {
+    -fx-shape: ""; /* Removes the triangle shape */
+    -fx-padding: 0;
+}
+
+/* Match the corner area if both scrollbars appear */
+#companyReviewScrollPane .corner {
+    -fx-background-color: #2b2b2b;
+}
 
 

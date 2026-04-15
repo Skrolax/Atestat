@@ -27,23 +27,31 @@ public class CompanyPageController implements Initializable {
     private ArrayList<Review> reviews;
     private UserPageController userPageController;
 
-    @FXML
-    VBox companyPageVBox;
-    @FXML
-    HBox companyContainerHBox;
-    @FXML
-    VBox leftCompanyContainerVBox;
-    @FXML
-    ImageView leftCompanyContainerImageView;
-    @FXML
-    Label leftContainerRatingLabel;
-    @FXML
-    HBox rightCompanyContainerHBox;
+    // Main Containers
+    @FXML VBox companyPageVBox;
+    @FXML HBox companyContainerHBox;
+    @FXML VBox leftCompanyContainerVBox;
+    @FXML HBox rightCompanyContainerHBox;
+    @FXML ScrollPane companyReviewScrollPane;
+    @FXML VBox companyReviewVBox;
 
-    @FXML
-    ScrollPane companyReviewScrollPane;
-    @FXML
-    VBox companyReviewVBox;
+    // Media and Rating
+    @FXML ImageView leftCompanyContainerImageView;
+    @FXML Label leftContainerRatingLabel;
+
+    // Company Information (Column 1)
+    @FXML Label companyNameLabel;
+    @FXML Label addressLabel;
+    @FXML Hyperlink websiteHyperlink;
+    @FXML Label foundedDateLabel;
+
+    // Contact Information (Column 2)
+    @FXML Label businessEmailLabel;
+    @FXML Label businessPhoneLabel;
+    @FXML Label customerEmailLabel;
+    @FXML Label customerPhoneLabel;
+
+    @FXML Label reviewTitleLabel;
 
 
 
@@ -53,59 +61,37 @@ public class CompanyPageController implements Initializable {
         this.mainController = mainController;
         this.company = company;
 
-        leftContainerRatingLabel.setText("NO RATING YET");
-        rightCompanyContainerHBox.getChildren().addAll(
-            new Label("Company Name: " +  company.getName()),
-            new Label("Company Founded Date: " + company.getCompanyFoundedDate()),
-            new Label("Company Address: " + company.getAddress()),
-            new Hyperlink("Company Website: " + company.getWebsiteLink()),
-            new Label("Business Email: " + company.getBusinessEmail()),
-            new Label("Customer Service Email: " + company.getCustomerServiceEmail()),
-            new Label("Business Phone Number: " + company.getBusinessPhoneNumber()),
-            new Label("Customer Service Phone Number: " + company.getBusinessPhoneNumber())
-        );
+        companyNameLabel.setText(company.getName());
+        addressLabel.setText(addressLabel.getText() + company.getAddress());
+        websiteHyperlink.setText(websiteHyperlink.getText() + company.getWebsiteLink());
+        foundedDateLabel.setText(foundedDateLabel.getText() + company.getCompanyFoundedDate());
+        businessEmailLabel.setText(businessEmailLabel.getText() + company.getBusinessEmail());
+        businessPhoneLabel.setText(businessPhoneLabel.getText() + company.getBusinessPhoneNumber());
+        customerEmailLabel.setText(customerEmailLabel.getText() + company.getCustomerServiceEmail());
+        customerPhoneLabel.setText(customerPhoneLabel.getText() + company.getCustomerServicePhoneNumber());
+
+        leftContainerRatingLabel.setText("TOTAL RATING: " + String.format("%.1f", DatabaseAccess.getCompanyTotalRating(company.getCompanyID())));
 
         reviews = DatabaseAccess.getCompanyReviews(company.getCompanyID());
         for(Review review : reviews){
-            //companyReviewVBox.getChildren().add(createReviewContainer(review));
+            User user = DatabaseAccess.getUser(review.getUserID());
+            loadReviewContainer(review);
         }
 
     }
 
 
-     private VBox createReviewContainer(Review review) throws SQLException {
-
-        User user = DatabaseAccess.getUser(review.getUserID());
-        VBox mainContainer = new VBox();
-        HBox topContainer = new HBox();
-        Label reviewText = new Label(review.getReviewText());
-        ImageView userPhoto = new ImageView();
-        Label userName;
-        Rating rating;
-
-        if(review.isAnonymous()){
-            userName = new Label("Anonymous user");
-            rating = new Rating();
-
+    private FXMLLoader loadReviewContainer(Review review){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("review_container.fxml"));
+        try {
+            Parent view = loader.load();
+            ReviewContainerController reviewContainerController = loader.getController();
+            reviewContainerController.setReviewContainer(review, this, this.mainController);
+            companyReviewVBox.getChildren().add(view);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        else {
-
-            userName = new Label(review.getUserName());
-            rating = new Rating();
-
-
-            userName.setOnMouseClicked(mouseEvent -> {
-                loadUserPage(user);
-            });
-        }
-
-        Label timeDate = new Label(review.getReviewDateTime().toString());
-
-        topContainer.getChildren().addAll(userPhoto, userName, rating, timeDate);
-
-        mainContainer.getChildren().addAll(topContainer, reviewText);
-
-        return mainContainer;
+        return loader;
     }
 
     private FXMLLoader loadUserPage(User user){

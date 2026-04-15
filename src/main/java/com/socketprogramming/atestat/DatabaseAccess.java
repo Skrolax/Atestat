@@ -171,5 +171,20 @@ public class DatabaseAccess {
         return user;
     }
 
+    public static float getCompanyTotalRating(int companyID) throws SQLException {
+        float totalRating = 0;
+        int reviewNumber = 0;
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM view_company_ratings WHERE CompanyID = ?"
+        );
+        preparedStatement.setInt(1, companyID);
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            totalRating+=resultSet.getFloat("Rating");
+            reviewNumber++;
+        }
+        return totalRating/reviewNumber;
+    }
+
 
 }

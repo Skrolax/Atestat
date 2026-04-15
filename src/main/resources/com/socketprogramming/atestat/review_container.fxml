@@ -5,19 +5,27 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="120.0" minWidth="1000.0" prefHeight="120.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="reviewItemContainer" fx:id="reviewItemContainer" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="120.0" minWidth="1000.0" prefHeight="150.0" prefWidth="1000.0" spacing="10.0" stylesheets="@../../../css/reviewContainerStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.ReviewContainerController">
    <children>
-      <HBox maxHeight="100.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <HBox id="headerHBox" fx:id="headerHBox" alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="1.7976931348623157E308" prefHeight="60.0" spacing="15.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" prefHeight="66.0" prefWidth="386.0" text="Username: " textAlignment="CENTER" HBox.hgrow="ALWAYS" />
-            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="88.0" prefWidth="743.0" text="Rating: " textAlignment="RIGHT" />
+            <ImageView id="userImageView" fx:id="userImageView" fitHeight="50.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true" />
+            <Label id="usernameLabel" fx:id="usernameLabel" prefHeight="30.0" prefWidth="602.0" text="Username: " />
+            <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label id="ratingLabel" fx:id="ratingLabel" text="Rating: " />
+               </children>
+            </HBox>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <VBox id="contentVBox" fx:id="contentVBox" VBox.vgrow="ALWAYS">
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="1070.0" text="Review Date: " textAlignment="RIGHT" />
+            <Label id="reviewTextLabel" fx:id="reviewTextLabel" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" text="Review content goes here..." wrapText="true" />
+         </children>
+      </VBox>
+      <HBox id="footerHBox" fx:id="footerHBox" alignment="CENTER_RIGHT" prefHeight="25.0">
+         <children>
+            <Label id="reviewDateLabel" fx:id="reviewDateLabel" text="Review Date: " />
          </children>
       </HBox>
    </children>
