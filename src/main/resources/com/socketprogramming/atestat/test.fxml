@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="258.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22">
+  <columnConstraints>
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="337.59996337890624" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="357.5999755859375" minWidth="0.0" prefWidth="146.40003662109376" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.39999999999998" minWidth="10.0" prefWidth="252.00001220703126" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ImageView fitHeight="192.0" fitWidth="245.0" pickOnBounds="true" preserveRatio="true" />
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Label text="aha" StackPane.alignment="TOP_LEFT" />
+            <Label prefHeight="46.0" prefWidth="28.0" text="Label" StackPane.alignment="TOP_LEFT" />
+            <Line endX="1233.357421875" endY="-15.700142860412598" startX="1079.66455078125" startY="277.0489501953125" />
+         </children>
+      </StackPane>
+   </children>
+</GridPane>

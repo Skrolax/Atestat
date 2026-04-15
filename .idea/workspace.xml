@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="Created a special fxml page to the user profile">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/companiesPageStylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/mainStylesheet.css" afterDir="false" />
+    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="Much stylization">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/review_container.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/test.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/companyPageStylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompaniesPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompaniesPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/companies_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/companies_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/companiesPageStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/companiesPageStylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -185,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775652042033</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Much stylization">
+      <option name="closed" value="true" />
+      <created>1775740032692</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1775740032692</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +217,7 @@
     <MESSAGE value="Reviews are displayed correctly" />
     <MESSAGE value="Created separate FXML files for the companies selected based on the service and the companies themselves" />
     <MESSAGE value="Created a special fxml page to the user profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created a special fxml page to the user profile" />
+    <MESSAGE value="Much stylization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Much stylization" />
   </component>
 </project>

@@ -31,7 +31,6 @@
 /* Hover effect for all cards */
 .company-container:hover {
     -fx-background-color: #303030;
-    -fx-border-color: #4A90E2;
     -fx-text-fill: black !important;
 }
 

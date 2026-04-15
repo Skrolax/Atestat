@@ -14,7 +14,7 @@
 
 <BorderPane fx:id="appBorderPane" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.MainController">
    <top>
-      <HBox alignment="CENTER" prefHeight="68.0" prefWidth="1100.0" spacing="20.0" style="-fx-background-color: #383838; -fx-border-color: #ddd; -fx-border-width: 0 0 1 0;" stylesheets="@../../../css/mainStylesheet.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" maxHeight="68.0" minHeight="68.0" minWidth="1100.0" prefHeight="68.0" prefWidth="1100.0" spacing="20.0" style="-fx-background-color: #383838;" stylesheets="@../../../css/mainStylesheet.css" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER" prefHeight="63.0" prefWidth="1100.0" style="-fx-background-color: #616161;" HBox.hgrow="ALWAYS">
                <children>
@@ -29,7 +29,7 @@
    </top>
 
    <bottom>
-      <VBox alignment="CENTER" minHeight="50.0" minWidth="1100.0" prefHeight="50.0" prefWidth="1100.0" style="-fx-background-color: #383838; -fx-border-color: #ddd; -fx-border-width: 1 0 0 0;" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" minHeight="50.0" minWidth="1100.0" prefHeight="50.0" prefWidth="1100.0" style="-fx-background-color: #383838;" BorderPane.alignment="CENTER">
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="© Biznis Entertainment" textAlignment="CENTER" />
             <Text fill="#aeaeae" strokeType="OUTSIDE" strokeWidth="0.0" text="All rights reserved." textAlignment="CENTER">

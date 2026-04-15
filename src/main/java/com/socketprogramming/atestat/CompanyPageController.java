@@ -2,6 +2,7 @@ package com.socketprogramming.atestat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -14,10 +15,12 @@ import org.controlsfx.control.Rating;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class CompanyPageController {
+public class CompanyPageController implements Initializable {
 
     private MainController mainController;
     private Company company;
@@ -35,7 +38,7 @@ public class CompanyPageController {
     @FXML
     Label leftContainerRatingLabel;
     @FXML
-    VBox rightCompanyContainerVBox;
+    HBox rightCompanyContainerHBox;
 
     @FXML
     ScrollPane companyReviewScrollPane;
@@ -51,7 +54,7 @@ public class CompanyPageController {
         this.company = company;
 
         leftContainerRatingLabel.setText("NO RATING YET");
-        rightCompanyContainerVBox.getChildren().addAll(
+        rightCompanyContainerHBox.getChildren().addAll(
             new Label("Company Name: " +  company.getName()),
             new Label("Company Founded Date: " + company.getCompanyFoundedDate()),
             new Label("Company Address: " + company.getAddress()),
@@ -64,7 +67,7 @@ public class CompanyPageController {
 
         reviews = DatabaseAccess.getCompanyReviews(company.getCompanyID());
         for(Review review : reviews){
-            companyReviewVBox.getChildren().add(createReviewContainer(review));
+            //companyReviewVBox.getChildren().add(createReviewContainer(review));
         }
 
     }
@@ -121,4 +124,8 @@ public class CompanyPageController {
         return loader;
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        companyPageVBox.getStylesheets().add(getClass().getResource("/css/companyPageStylesheet.css").toExternalForm());
+    }
 }
