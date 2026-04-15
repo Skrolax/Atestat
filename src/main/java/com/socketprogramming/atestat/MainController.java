@@ -6,16 +6,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 
 import java.io.IOException;
@@ -32,10 +31,23 @@ public class MainController implements Initializable {
     BorderPane appBorderPane;
     @FXML
     ImageView homeIconImageView;
+    @FXML
+    Button userProfileButton;
 
 
     ScrollPane companyContainerScrollPane;
     private ArrayList<Service> services;
+    private LoginController loginController;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    private User user;
 
     @FXML
     ComboBox<Service> servicesComboBox;
@@ -53,29 +65,15 @@ public class MainController implements Initializable {
         return loader;
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        try {
-            connectToDataBase();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
         initializeServicesChoiceBox();
         Platform.runLater(() -> appBorderPane.requestFocus());
         appBorderPane.setOnMouseClicked(event -> {
             appBorderPane.requestFocus();
         });
-    }
-
-
-
-    private void initializeCompanyContainerScrollPane(){
-        companyContainerScrollPane = new ScrollPane();
-        appBorderPane.setCenter(companyContainerScrollPane);
-        companyContainerScrollPane.setFitToWidth(true);
-        companyContainerScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
     }
 
     private void initializeServicesChoiceBox(){

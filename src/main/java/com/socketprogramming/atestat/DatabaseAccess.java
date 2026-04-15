@@ -165,6 +165,7 @@ public class DatabaseAccess {
                     resultSet.getString("Name"),
                     resultSet.getString("Password"),
                     resultSet.getString("Email"),
+                    resultSet.getDate("Join_Date").toLocalDate(),
                     resultSet.getBytes("Photo_Byte")
             );
         }
@@ -185,6 +186,36 @@ public class DatabaseAccess {
         }
         return totalRating/reviewNumber;
     }
+
+    public static boolean checkIfEmailExists(String email) throws SQLException {
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM user WHERE Email = ?"
+        );
+        preparedStatement.setString(1, email);
+        resultSet = preparedStatement.executeQuery();
+        return resultSet.next();
+    }
+
+    public static User attemptLogin(String email, String password) throws SQLException {
+        User user = null;
+        preparedStatement = connection.prepareStatement(
+                "SELECT * FROM user WHERE Email = ? AND Password = ?"
+        );
+        preparedStatement.setString(1, email);
+        preparedStatement.setString(2, password);
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            user = new User(resultSet.getInt("UserID"),
+                    resultSet.getString("Name"),
+                    email,
+                    password,
+                    resultSet.getDate("Join_Date").toLocalDate(),
+                    resultSet.getBytes("Photo_Byte")
+            );
+        }
+        return user;
+    }
+
 
 
 }

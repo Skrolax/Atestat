@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.socketprogramming.atestat.LoginController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<HBox id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" stylesheets="@../../../css/loginStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.LoginController">
+   <children>
+      <VBox id="mainContainer" fx:id="mainContainer" alignment="CENTER" prefHeight="650.0" prefWidth="394.0" spacing="20.0" HBox.hgrow="NEVER">
+         <children>
+            <Label fx:id="loginLabel" alignment="CENTER" prefHeight="41.0" prefWidth="394.0" text="Login/Register" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Candara Bold" size="29.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="emailField" alignment="CENTER" promptText="enter your email" />
+            <TextField fx:id="usernameField" alignment="CENTER" promptText="enter your username" />
+            <PasswordField fx:id="passwordField" alignment="CENTER" promptText="enter your password" />
+            <PasswordField fx:id="reenterpasswordField" alignment="CENTER" promptText="re-enter your password" />
+            <Button fx:id="initialLoginButton" mnemonicParsing="false" onAction="#initialLogin" prefHeight="26.0" prefWidth="167.0" text="InitialLogin" />
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="165.0" text="Login" />
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#register" prefHeight="26.0" prefWidth="163.0" text="Register" />
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>

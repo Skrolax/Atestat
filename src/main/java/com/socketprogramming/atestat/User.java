@@ -26,6 +26,9 @@ public class User {
     public String getEmail() {
         return this.email;
     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public byte[] getPhoto() {
         return photo;
     }
@@ -46,6 +49,9 @@ public class User {
     private int userID;
     private String name;
     private String password;
+
+
+
     private String email;
 
 
@@ -53,11 +59,12 @@ public class User {
     private byte[] photo;
     private ArrayList<Review> reviews;
 
-    User(int userID, String name, String password, String email, byte[] photo){
+    User(int userID, String name, String password, String email, LocalDate joinDate, byte[] photo){
         this.userID = userID;
         this.name = name;
         this.password = password;
         this.email = email;
+        this.joinDate = joinDate;
         this.photo = photo;
     }
 
