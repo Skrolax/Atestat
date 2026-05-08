@@ -69,8 +69,8 @@ public class DatabaseAccess {
                     resultSet.getString("Review_Text"),
                     resultSet.getFloat("Rating"),
                     resultSet.getBoolean("Is_Anonymous"),
-                    resultSet.getTimestamp("Review_DateTime").toLocalDateTime(),
-                    resultSet.getBytes("User_Photo")
+                    resultSet.getBytes("User_Photo"),
+                    resultSet.getTimestamp("Review_DateTime").toLocalDateTime()
             );
             reviews.add(review);
         }
@@ -144,8 +144,8 @@ public class DatabaseAccess {
                     resultSet.getString("Review_Text"),
                     resultSet.getFloat("Rating"),
                     resultSet.getBoolean("Is_Anonymous"),
-                    resultSet.getTimestamp("Review_DateTime").toLocalDateTime(),
-                    resultSet.getBytes("User_Photo")
+                    resultSet.getBytes("User_Photo"),
+                    resultSet.getTimestamp("Review_DateTime").toLocalDateTime()
             );
             reviews.add(review);
         }
@@ -213,6 +213,19 @@ public class DatabaseAccess {
                     resultSet.getBytes("Photo_Byte")
             );
         }
+        return user;
+    }
+
+    public static User registerUser(String email, String password, String username) throws SQLException {
+        User user = null;
+        preparedStatement = connection.prepareStatement(
+                "INSERT INTO user (Name, Email, Password) VALUES (?, ?, ?)"
+        );
+        preparedStatement.setString(1, username);
+        preparedStatement.setString(2, email);
+        preparedStatement.setString(3, username);
+        update = preparedStatement.executeUpdate();
+        user = DatabaseAccess.attemptLogin(email, password);
         return user;
     }
 

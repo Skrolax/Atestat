@@ -1,11 +1,12 @@
 #companies-vbox{
    -fx-padding: 15px;
    -fx-spacing: 20px;
+   -fx-background-color: #2b2b2b;
 }
 
 .company-container {
-    -fx-background-color: #242424;
-    -fx-border-color: #ddd;
+    -fx-background-color: #171717;
+    -fx-border-color: #333333;
     -fx-border-width: 1px;
     -fx-border-radius: 8px;
     -fx-background-radius: 8px;
@@ -30,7 +31,7 @@
 
 /* Hover effect for all cards */
 .company-container:hover {
-    -fx-background-color: #303030;
+    -fx-background-color: #212121;
     -fx-text-fill: black !important;
 }
 

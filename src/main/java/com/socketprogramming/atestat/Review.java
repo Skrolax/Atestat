@@ -81,7 +81,7 @@ public class Review {
     }
 
 
-    Review(int reviewID, int userID, String userName, int companyID, String companyName, String reviewText, float rating, boolean isAnonymous, LocalDateTime reviewDateTime, byte[] photo){
+    Review(int reviewID, int userID, String userName, int companyID, String companyName, String reviewText, float rating, boolean isAnonymous,  byte[] photo, LocalDateTime reviewDateTime){
         this.reviewID = reviewID;
         this.userID = userID;
         this.userName = userName;
@@ -92,6 +92,18 @@ public class Review {
         this.isAnonymous = isAnonymous;
         this.userPhoto = photo;
         this.reviewDateTime = reviewDateTime;
+    }
+
+    Review(int userID, String userName, int companyID, String companyName, String reviewText, float rating, boolean isAnonymous, byte[] photo){
+        this.userID = userID;
+        this.userName = userName;
+        this.companyID = companyID;
+        this.companyName = companyName;
+        this.reviewText = reviewText;
+        this.rating = rating;
+        this.isAnonymous = isAnonymous;
+        this.userPhoto = photo;
+        this.reviewID = 2;
     }
 
 }

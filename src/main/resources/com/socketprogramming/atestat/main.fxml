@@ -15,15 +15,18 @@
 
 <BorderPane fx:id="appBorderPane" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="1100.0" stylesheets="@../../../css/mainStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.MainController">
    <top>
-      <HBox alignment="CENTER" maxHeight="68.0" minHeight="68.0" minWidth="1100.0" prefHeight="68.0" prefWidth="1100.0" spacing="20.0" style="-fx-background-color: #383838;" stylesheets="@../../../css/mainStylesheet.css" BorderPane.alignment="CENTER">
+      <HBox fx:id="navbarHBox" alignment="CENTER" maxHeight="68.0" minHeight="68.0" minWidth="1100.0" prefHeight="68.0" prefWidth="1100.0" spacing="20.0" style="-fx-background-color: #383838;" stylesheets="@../../../css/mainStylesheet.css" BorderPane.alignment="CENTER">
          <children>
             <Button id="backButton" fx:id="backButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="92.0" text="Back" />
-            <ComboBox fx:id="servicesComboBox" maxWidth="879.0" prefHeight="35.0" prefWidth="610.0" promptText="What service are you looking for today?" />
-            <Button id="loginButton" fx:id="userProfileButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="326.0" text="User Profile" />
+            <ComboBox fx:id="servicesComboBox" maxWidth="879.0" prefHeight="35.0" prefWidth="610.0" promptText="What service are you looking for today?" HBox.hgrow="SOMETIMES" />
+            <Button id="loginButton" fx:id="userProfileButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="326.0" text="User Profile" HBox.hgrow="SOMETIMES" />
          </children>
          <padding>
-            <Insets bottom="10.0" top="10.0" />
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
          </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </HBox>
    </top>
 

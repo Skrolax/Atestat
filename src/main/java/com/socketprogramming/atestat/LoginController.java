@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -41,14 +42,15 @@ public class LoginController implements Initializable {
     @FXML Button initialLoginButton;
     @FXML Button loginButton;
     @FXML Button registerButton;
+    @FXML Label statusUpdateLabel;
 
     @FXML
-    public void initialLogin() throws SQLException {
+    public void initialLogin() throws SQLException, IOException {
         accountExists = DatabaseAccess.checkIfEmailExists(emailField.getText());
         if(accountExists){
             loginLabel.setText("Login");
             mainContainer.getChildren().remove(initialLoginButton);
-            mainContainer.getChildren().addAll(passwordField, loginButton);
+            mainContainer.getChildren().addAll(passwordField, loginButton, statusUpdateLabel);
             emailField.setOnAction(event -> passwordField.requestFocus());
             passwordField.requestFocus();
             passwordField.setOnAction(event -> {
@@ -62,20 +64,39 @@ public class LoginController implements Initializable {
         else{
             loginLabel.setText("Register");
             mainContainer.getChildren().remove(initialLoginButton);
-            mainContainer.getChildren().addAll(usernameField, passwordField, reenterpasswordField, registerButton);
+            mainContainer.getChildren().addAll(usernameField, passwordField, reenterpasswordField, registerButton, statusUpdateLabel);
+            register();
         }
     }
 
     @FXML
-    public void register(){
-
+    public void register() throws SQLException, IOException {
+        if(DatabaseAccess.checkIfEmailExists(emailField.getText())){
+            login();
+        }
+        else{
+            if(!Objects.equals(passwordField.getText(), reenterpasswordField.getText())){
+                statusUpdateLabel.setText("Passwords are not the same");
+                reenterpasswordField.requestFocus();
+                return;
+            }
+            DatabaseAccess.registerUser(emailField.getText(), passwordField.getText(), usernameField.getText());
+        }
     }
 
     @FXML
     public void login() throws SQLException, IOException {
-        user = DatabaseAccess.attemptLogin(emailField.getText(), passwordField.getText());
-        if(user != null){
-            loadMainApp(user);
+        if(DatabaseAccess.checkIfEmailExists(emailField.getText())){
+            user = DatabaseAccess.attemptLogin(emailField.getText(), passwordField.getText());
+            if (user != null) {
+                loadMainApp(user);
+            } else {
+                statusUpdateLabel.setText("Wrong password.");
+                passwordField.clear();
+            }
+        }
+        else{
+            register();
         }
     }
 
@@ -97,12 +118,15 @@ public class LoginController implements Initializable {
         initialLoginButton.setText("Check");
         emailField.setOnAction(actionEvent -> {
             try {
+                if(emailField.getText().isEmpty()){
+                    return;
+                }
                 initialLogin();
-            } catch (SQLException e) {
+            } catch (SQLException | IOException e) {
                 throw new RuntimeException(e);
             }
         });
-        mainContainer.getChildren().removeAll(usernameField, passwordField, reenterpasswordField, loginButton, registerButton);
+        mainContainer.getChildren().removeAll(usernameField, passwordField, reenterpasswordField, loginButton, registerButton, statusUpdateLabel);
         try {
             DatabaseAccess.startConnection();
         } catch (SQLException e) {

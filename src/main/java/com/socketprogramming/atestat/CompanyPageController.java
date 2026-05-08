@@ -4,9 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -23,6 +21,14 @@ import java.util.ResourceBundle;
 public class CompanyPageController implements Initializable {
 
     private MainController mainController;
+
+    public Company getCompany() {
+        return company;
+    }
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     private Company company;
     private ArrayList<Review> reviews;
     private UserPageController userPageController;
@@ -52,6 +58,9 @@ public class CompanyPageController implements Initializable {
     @FXML Label customerPhoneLabel;
 
     @FXML Label reviewTitleLabel;
+    @FXML Button addReviewButton;
+
+    @FXML HBox reviewTitleHBox;
 
 
 
@@ -81,7 +90,7 @@ public class CompanyPageController implements Initializable {
     }
 
 
-    private FXMLLoader loadReviewContainer(Review review){
+    public FXMLLoader loadReviewContainer(Review review){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("review_container.fxml"));
         try {
             Parent view = loader.load();
@@ -92,6 +101,48 @@ public class CompanyPageController implements Initializable {
             e.printStackTrace();
         }
         return loader;
+    }
+
+    @FXML
+    private void addReview(){
+        companyReviewScrollPane.setVvalue(0.0);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("add_review_container.fxml"));
+        try {
+            Parent view = loader.load();
+            AddReviewContainerController addReviewContainerController = loader.getController();
+            addReviewContainerController.setControllers(this, this.mainController);
+            companyReviewVBox.getChildren().addFirst(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        /*VBox mainContainer = new VBox();
+        mainContainer.getStylesheets().add(getClass().getResource("/css/addReviewContainerStylesheet.css").toExternalForm());
+        mainContainer.minHeight(40);
+        mainContainer.setPrefWidth(1000);
+        mainContainer.setPrefHeight(120);
+        mainContainer.setId("mainContainer");
+
+        HBox topContainer = new HBox();
+        TextField addReviewTextField = new TextField();
+        Button closeContainerButton = new Button("X");
+        addReviewTextField.setText("Enter your review");
+
+        addReviewTextField.setPrefWidth(950);
+
+
+        HBox bottomContainer = new HBox();
+        Label ratingLabel = new Label();
+        ratingLabel.setText("Rating: ");
+        Rating rating = new Rating(5);
+        Button sendButton = new Button("Send");
+
+        topContainer.getChildren().addAll(addReviewTextField, closeContainerButton);
+        bottomContainer.getChildren().addAll(ratingLabel, rating, sendButton);
+        mainContainer.getChildren().addAll(topContainer, bottomContainer);
+
+        companyReviewVBox.getChildren().addFirst(mainContainer);*/
+
     }
 
     private FXMLLoader loadUserPage(User user){

@@ -21,13 +21,39 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <TextField fx:id="emailField" alignment="CENTER" promptText="enter your email" />
-            <TextField fx:id="usernameField" alignment="CENTER" promptText="enter your username" />
-            <PasswordField fx:id="passwordField" alignment="CENTER" promptText="enter your password" />
-            <PasswordField fx:id="reenterpasswordField" alignment="CENTER" promptText="re-enter your password" />
-            <Button fx:id="initialLoginButton" mnemonicParsing="false" onAction="#initialLogin" prefHeight="26.0" prefWidth="167.0" text="InitialLogin" />
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="165.0" text="Login" />
-            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#register" prefHeight="26.0" prefWidth="163.0" text="Register" />
+            <TextField fx:id="emailField" alignment="CENTER" promptText="enter your email">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font></TextField>
+            <TextField fx:id="usernameField" alignment="CENTER" promptText="enter your username">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font></TextField>
+            <PasswordField fx:id="passwordField" alignment="CENTER" promptText="enter your password">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font></PasswordField>
+            <PasswordField fx:id="reenterpasswordField" alignment="CENTER" promptText="re-enter your password">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font></PasswordField>
+            <Button fx:id="initialLoginButton" mnemonicParsing="false" onAction="#initialLogin" prefHeight="26.0" prefWidth="167.0" text="InitialLogin">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font></Button>
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="165.0" text="Login">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font></Button>
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#register" prefHeight="26.0" prefWidth="163.0" text="Register">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font></Button>
+            <Label fx:id="statusUpdateLabel" prefHeight="18.0" prefWidth="374.0" textFill="#e70303">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font>
+            </Label>
          </children>
          <HBox.margin>
             <Insets />

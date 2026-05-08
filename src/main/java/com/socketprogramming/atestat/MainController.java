@@ -27,13 +27,11 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    @FXML
-    BorderPane appBorderPane;
-    @FXML
-    ImageView homeIconImageView;
-    @FXML
-    Button userProfileButton;
-
+    @FXML BorderPane appBorderPane;
+    @FXML ImageView homeIconImageView;
+    @FXML Button userProfileButton;
+    @FXML Button backButton;
+    @FXML HBox navbarHBox;
 
     ScrollPane companyContainerScrollPane;
     private ArrayList<Service> services;
@@ -69,6 +67,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        navbarHBox.getChildren().remove(backButton);
         initializeServicesChoiceBox();
         Platform.runLater(() -> appBorderPane.requestFocus());
         appBorderPane.setOnMouseClicked(event -> {

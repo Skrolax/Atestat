@@ -97,4 +97,16 @@
     -fx-background-color: #2b2b2b;
 }
 
+#reviewLabel {
+    -fx-background-color: #121212;
+}
+
+#addReviewButton{
+    -fx-background-color: #121212;
+}
+
+#addReviewButton:hover{
+    -fx-background-color: #303030;
+}
+
 
