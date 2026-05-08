@@ -4,26 +4,20 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
+import javafx.scene.control.skin.ComboBoxBaseSkin;
+import javafx.scene.control.skin.ComboBoxListViewSkin;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import org.controlsfx.control.Rating;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 public class MainController implements Initializable {
 
@@ -32,83 +26,115 @@ public class MainController implements Initializable {
     @FXML Button userProfileButton;
     @FXML Button backButton;
     @FXML HBox navbarHBox;
+    @FXML ComboBox<Service> servicesComboBox;
 
-    ScrollPane companyContainerScrollPane;
     private ArrayList<Service> services;
-    private LoginController loginController;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     private User user;
 
-    @FXML
-    ComboBox<Service> servicesComboBox;
+    public Stack<Parent> getHistorySceneStack() {
+        return historySceneStack;
+    }
+    public void setHistorySceneStack(Stack<Parent> historySceneStack) {
+        this.historySceneStack = historySceneStack;
+    }
+
+    private Stack<Parent> historySceneStack = new Stack<>();
+
+    public Stack<Service> getHistoryServiceStack() {
+        return historyServiceStack;
+    }
+    public void setHistoryServiceStack(Stack<Service> historyServiceStack) {
+        this.historyServiceStack = historyServiceStack;
+    }
+
+    private Stack<Service> historyServiceStack = new Stack<>();
+
+    private boolean navigationInProgress = false;
+
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 
     public FXMLLoader loadCompaniesPage() {
-        FXMLLoader loader = new FXMLLoader();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("companies_page.fxml"));
         try {
-            loader = new FXMLLoader(getClass().getResource("companies_page.fxml"));
             Parent view = loader.load();
             appBorderPane.setCenter(view);
-
+            backButton.setVisible(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return loader;
     }
 
+    @FXML
+    public void goBack() {
+        if (historySceneStack.isEmpty()) {
+            return;
+        }
+
+        navigationInProgress = true;
+
+        try {
+            Parent previousView = historySceneStack.pop();
+            Service previousService = historyServiceStack.pop();
+
+            appBorderPane.setCenter(previousView);
+
+            if (previousService == null) {
+                servicesComboBox.getSelectionModel().clearSelection();
+            } else {
+                servicesComboBox.getSelectionModel().select(previousService);
+            }
+
+            if (historySceneStack.isEmpty()) {
+                backButton.setVisible(false);
+                servicesComboBox.setSkin(new ComboBoxListViewSkin<>(servicesComboBox));
+            }
+        } finally {
+            navigationInProgress = false;
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        navbarHBox.getChildren().remove(backButton);
+        backButton.setVisible(false);
         initializeServicesChoiceBox();
         Platform.runLater(() -> appBorderPane.requestFocus());
-        appBorderPane.setOnMouseClicked(event -> {
-            appBorderPane.requestFocus();
-        });
+        appBorderPane.setOnMouseClicked(event -> appBorderPane.requestFocus());
     }
 
-    private void initializeServicesChoiceBox(){
-
+    private void initializeServicesChoiceBox() {
         try {
-           services = DatabaseAccess.getServices();
+            services = DatabaseAccess.getServices();
+            servicesComboBox.getItems().setAll(services);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
-        servicesComboBox.getItems().setAll(services);
-        servicesComboBox.setOnAction(event -> {
-            Service selectedService = servicesComboBox.getSelectionModel().getSelectedItem();;
+        servicesComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (!navigationInProgress && newValue != null) {
 
-        });
-        servicesComboBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-            if(newValue != null){
+                historySceneStack.push((Parent) appBorderPane.getCenter());
+                historyServiceStack.push(oldValue);
 
                 FXMLLoader loader = loadCompaniesPage();
-                CompaniesPageController companiesPageController = loader.getController();
-                companiesPageController.setMainController(this);
+                if (loader != null) {
+                    CompaniesPageController companiesPageController = loader.getController();
+                    companiesPageController.setMainController(this);
 
-                try {
-                    companiesPageController.setCompanies(DatabaseAccess.getCompaniesBasedOnService(newValue.getServiceID()));
-                } catch (SQLException | IOException e) {
-                    throw new RuntimeException(e);
+                    try {
+                        companiesPageController.setCompanies(
+                                DatabaseAccess.getCompaniesBasedOnService(newValue.getServiceID())
+                        );
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
-        servicesComboBox.getSelectionModel().clearSelection();
     }
-
 
     private void connectToDataBase() throws SQLException {
         DatabaseAccess.startConnection();
     }
-
 }
-

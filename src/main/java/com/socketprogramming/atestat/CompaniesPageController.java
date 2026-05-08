@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.controlsfx.control.Rating;
@@ -23,27 +22,17 @@ import java.util.ResourceBundle;
 
 public class CompaniesPageController implements Initializable {
 
-    // FXML COMPONENTS
-
-    @FXML
-    ScrollPane companiesScrollPane;
-    @FXML
-    VBox companiesVBox;
-
+    @FXML ScrollPane companiesScrollPane;
+    @FXML VBox companiesVBox;
 
     private MainController mainController;
+    private ArrayList<Company> companies;
+
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-
-
-
-    private ArrayList<Company> companies;
-    private ArrayList<Review> reviews;
-
-    private HBox createCompanyContainer(Company company){
-
+    private HBox createCompanyContainer(Company company) {
         HBox mainContainer = new HBox();
         VBox leftContainer = new VBox();
         VBox rightContainer = new VBox();
@@ -60,14 +49,13 @@ public class CompaniesPageController implements Initializable {
         Hyperlink websiteLink = new Hyperlink(company.getWebsiteLink());
         Label moreDetails = new Label("Click for more details and reviews");
 
-        rightContainer.getChildren().addAll(companyName, companyAddress, companyServices, customerServiceEmail,customerServicePhoneNumber, websiteLink, moreDetails);
+        rightContainer.getChildren().addAll(companyName, companyAddress, companyServices, customerServiceEmail, customerServicePhoneNumber, websiteLink, moreDetails);
         mainContainer.getChildren().addAll(leftContainer, rightContainer);
 
         mainContainer.setOnMouseClicked(mouseEvent -> {
             loadCompanyPage(company);
         });
 
-        //CSS
         mainContainer.getStyleClass().add("company-container");
         leftContainer.getStyleClass().add("left-company-container");
         rightContainer.getStyleClass().add("right-company-container");
@@ -75,23 +63,23 @@ public class CompaniesPageController implements Initializable {
         return mainContainer;
     }
 
+    private void loadCompanyPage(Company company) {
 
-    private FXMLLoader loadCompanyPage(Company company){
+        mainController.getHistorySceneStack().push((Parent) mainController.appBorderPane.getCenter());
+        mainController.getHistoryServiceStack().push(mainController.servicesComboBox.getSelectionModel().getSelectedItem());
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("company_page.fxml"));
         try {
             Parent view = loader.load();
-
             CompanyPageController companyPageController = loader.getController();
             companyPageController.setCompanyPage(this.mainController, company);
             mainController.appBorderPane.setCenter(view);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return loader;
-    }
+            mainController.backButton.setVisible(true);
 
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -99,13 +87,11 @@ public class CompaniesPageController implements Initializable {
         companiesVBox.setId("companies-vbox");
     }
 
-    public void setCompanies(ArrayList<Company> companies) throws IOException {
-
+    public void setCompanies(ArrayList<Company> companies) {
         this.companies = companies;
-        for(Company company : companies){
+        companiesVBox.getChildren().clear();
+        for (Company company : companies) {
             companiesVBox.getChildren().add(createCompanyContainer(company));
         }
-
     }
-
 }
