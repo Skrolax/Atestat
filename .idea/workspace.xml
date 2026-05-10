@@ -4,13 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="added user page, users can now add their profile picture, and the profile picture will get updated to the database">
+    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="finished the user page, where users can now change their photo, username and password">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/BCrypt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/EmailValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/HashingText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompaniesPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompaniesPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/ReviewContainerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/ReviewContainerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/UserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/UserPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/review_container.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/review_container.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/user_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/user_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/companyPageStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/companyAndUserPageStylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/mainStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/mainStylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,24 +68,27 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;22&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nedel/OneDrive/Desktop/Programare/The Real Deal/Atestat/lib/mysql-connector-j-9.6.0.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Client.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/nedel/OneDrive/Desktop/Programare/The Real Deal/Atestat/src/main/java/com/socketprogramming/atestat",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1150748",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nedel\OneDrive\Desktop\Programare\The Real Deal\Atestat\src\main\java\com\socketprogramming\atestat" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nedel\OneDrive\Desktop\Programare\The Real Deal\Atestat\src\main\resources\photos" />
     </key>
@@ -247,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778426401475</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="finished the user page, where users can now change their photo, username and password">
+      <option name="closed" value="true" />
+      <created>1778433086871</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1778433086871</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -278,6 +297,7 @@
     <MESSAGE value="added back button, now user can go back to the previous scenes" />
     <MESSAGE value="users can now select different ratings and if the review is anonymous or not when submitting" />
     <MESSAGE value="added user page, users can now add their profile picture, and the profile picture will get updated to the database" />
-    <option name="LAST_COMMIT_MESSAGE" value="added user page, users can now add their profile picture, and the profile picture will get updated to the database" />
+    <MESSAGE value="finished the user page, where users can now change their photo, username and password" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished the user page, where users can now change their photo, username and password" />
   </component>
 </project>

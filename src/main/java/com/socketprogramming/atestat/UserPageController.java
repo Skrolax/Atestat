@@ -76,7 +76,9 @@ public class UserPageController implements Initializable {
                 updateStatusLabel.setText("Password don't match!");
                 return;
             }
-            DatabaseAccess.updateUserPassword(user.getID(), changePasswordPasswordField.getText());
+            DatabaseAccess.updateUserPassword(user.getID(), BCrypt.hashpw(changePasswordPasswordField.getText(), BCrypt.gensalt(12)));
+            changePasswordPasswordField.clear();
+            reenterPasswordChangePasswordField.clear();
             changeMade = true;
         }
         if(changeMade){
@@ -135,7 +137,7 @@ public class UserPageController implements Initializable {
 
     }
 
-    public FXMLLoader loadReviewContainer(Review review){
+    public void loadReviewContainer(Review review){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("review_container.fxml"));
         try {
             Parent view = loader.load();
@@ -145,7 +147,6 @@ public class UserPageController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return loader;
     }
 
 }

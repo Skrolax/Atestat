@@ -5,12 +5,13 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="companyPageVBox" fx:id="companyPageVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="1000.0" prefHeight="0.0" prefWidth="0.0" stylesheets="@../../../css/companyPageStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.CompanyPageController">
+<VBox id="companyPageVBox" fx:id="companyPageVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="1000.0" prefHeight="0.0" prefWidth="0.0" stylesheets="@../../../css/companyAndUserPageStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.CompanyPageController">
    <children>
       <Label fx:id="companyNameLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #121212; -fx-border-width: 2px 0 0 0; -fx-border-color: #555555 transparent transparent transparent;" text=" Company Name" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
          <font>
@@ -19,9 +20,15 @@
       </Label>
       <HBox id="companyContainerHBox" fx:id="companyContainerHBox" alignment="CENTER" prefHeight="0.0" prefWidth="1000.0" spacing="10.0" VBox.vgrow="NEVER">
          <children>
-            <VBox id="leftCompanyContainerVBox" fx:id="leftCompanyContainerVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <VBox id="leftCompanyContainerVBox" fx:id="leftCompanyContainerVBox" alignment="CENTER" prefHeight="222.0" prefWidth="576.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView id="leftCompanyContainerImageView" fx:id="leftCompanyContainerImageView" fitHeight="196.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="leftCompanyContainerImageView" fx:id="leftCompanyContainerImageView" fitHeight="260.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../photos/defaulticonmouse.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></ImageView>
                   <Label id="leftContainerRatingLabel" fx:id="leftContainerRatingLabel" alignment="CENTER" prefHeight="18.0" prefWidth="262.0" text="TOTAL RATING:" textAlignment="CENTER" textFill="WHITE" />
                </children>
                <HBox.margin>

@@ -5,11 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import org.controlsfx.control.Rating;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -163,6 +161,6 @@ public class CompanyPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        companyPageVBox.getStylesheets().add(getClass().getResource("/css/companyPageStylesheet.css").toExternalForm());
+        companyPageVBox.getStylesheets().add(getClass().getResource("/css/companyAndUserPageStylesheet.css").toExternalForm());
     }
 }

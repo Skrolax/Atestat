@@ -17,12 +17,12 @@
    <top>
       <HBox fx:id="navbarHBox" alignment="CENTER" maxHeight="68.0" minHeight="68.0" minWidth="1100.0" prefHeight="68.0" prefWidth="1100.0" spacing="20.0" style="-fx-background-color: #383838;" stylesheets="@../../../css/mainStylesheet.css" BorderPane.alignment="CENTER">
          <children>
-            <Button id="backButton" fx:id="backButton" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="94.0" text="&lt; Back">
+            <Button id="backButton" fx:id="backButton" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="94.0" text="&lt; Back" textFill="WHITE">
                <font>
                   <Font name="Calisto MT" size="12.0" />
                </font></Button>
             <ComboBox fx:id="servicesComboBox" maxWidth="879.0" prefHeight="35.0" prefWidth="610.0" promptText="What service are you looking for today?" HBox.hgrow="SOMETIMES" />
-            <Button id="loginButton" fx:id="userProfileButton" mnemonicParsing="false" onAction="#loadUserPage" prefHeight="48.0" prefWidth="96.0" text="User Profile" HBox.hgrow="SOMETIMES" />
+            <Button id="userButton" fx:id="userProfileButton" mnemonicParsing="false" onAction="#loadUserPage" prefHeight="48.0" prefWidth="96.0" text="User Profile" textFill="WHITE" HBox.hgrow="SOMETIMES" />
          </children>
          <padding>
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />

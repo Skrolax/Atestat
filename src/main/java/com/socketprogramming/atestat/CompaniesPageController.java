@@ -32,13 +32,19 @@ public class CompaniesPageController implements Initializable {
         this.mainController = mainController;
     }
 
-    private HBox createCompanyContainer(Company company) {
+    private HBox createCompanyContainer(Company company) throws SQLException {
         HBox mainContainer = new HBox();
         VBox leftContainer = new VBox();
         VBox rightContainer = new VBox();
 
-        ImageView imageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/photos/images.png"))));
+        ImageView imageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/photos/defaulticonmouse.jpg"))));
+        imageView.setFitWidth(330);
+        imageView.setFitHeight(260);
         Rating rating = new Rating(5);
+        rating.setPartialRating(true);
+        rating.setRating(DatabaseAccess.getCompanyTotalRating(company.getCompanyID()));
+        rating.setMouseTransparent(true);
+        rating.setFocusTraversable(false);
         leftContainer.getChildren().addAll(imageView, rating);
 
         Label companyName = new Label(company.getName());
@@ -87,7 +93,7 @@ public class CompaniesPageController implements Initializable {
         companiesVBox.setId("companies-vbox");
     }
 
-    public void setCompanies(ArrayList<Company> companies) {
+    public void setCompanies(ArrayList<Company> companies) throws SQLException {
         this.companies = companies;
         companiesVBox.getChildren().clear();
         for (Company company : companies) {

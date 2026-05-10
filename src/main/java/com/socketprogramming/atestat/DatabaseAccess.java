@@ -35,13 +35,6 @@ public class DatabaseAccess {
         preparedStatement.setBoolean(5, isAnonymous);
         update = preparedStatement.executeUpdate();
     }
-    public static void removeReview(int reviewID) throws SQLException {
-        preparedStatement = connection.prepareStatement(
-                "DELETE FROM review WHERE ReviewID = ?"
-        );
-        preparedStatement.setInt(1, reviewID);
-        update = preparedStatement.executeUpdate();
-    }
 
 
     public static ArrayList<Review> getCompanyReviews(int companyID) throws SQLException {
@@ -191,19 +184,25 @@ public class DatabaseAccess {
     public static User attemptLogin(String email, String password) throws SQLException {
         User user = null;
         preparedStatement = connection.prepareStatement(
-                "SELECT * FROM user WHERE Email = ? AND Password = ?"
+                "SELECT * FROM user WHERE Email = ?"
         );
         preparedStatement.setString(1, email);
-        preparedStatement.setString(2, password);
         resultSet = preparedStatement.executeQuery();
+        String hashedPassword = new String();
         while(resultSet.next()){
-            user = new User(resultSet.getInt("UserID"),
-                    resultSet.getString("Name"),
-                    email,
-                    password,
-                    resultSet.getDate("Join_Date").toLocalDate(),
-                    resultSet.getBytes("Photo_Byte")
-            );
+
+            hashedPassword = resultSet.getString("Password");
+            if(BCrypt.checkpw(password, hashedPassword)){
+                user = new User(resultSet.getInt("UserID"),
+                        resultSet.getString("Name"),
+                        email,
+                        hashedPassword,
+                        resultSet.getDate("Join_Date").toLocalDate(),
+                        resultSet.getBytes("Photo_Byte")
+                );
+            }
+
+
         }
         return user;
     }
@@ -215,7 +214,7 @@ public class DatabaseAccess {
         );
         preparedStatement.setString(1, username);
         preparedStatement.setString(2, email);
-        preparedStatement.setString(3, username);
+        preparedStatement.setString(3, BCrypt.hashpw(password, BCrypt.gensalt(12)));
         update = preparedStatement.executeUpdate();
         user = DatabaseAccess.attemptLogin(email, password);
         return user;

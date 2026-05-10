@@ -109,4 +109,19 @@
     -fx-background-color: #303030;
 }
 
+#saveChangesButton{
+-fx-background-color: #121212;
+}
+
+#changeProfilePhotoButton{
+-fx-background-color: #121212;
+}
+
+#saveChangesButton:hover{
+-fx-background-color: #454545;
+}
+
+#changeProfilePhotoButton:hover{
+-fx-background-color: #454545;
+}
 

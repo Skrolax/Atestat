@@ -1,5 +1,6 @@
 package com.socketprogramming.atestat;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -46,6 +47,13 @@ public class LoginController implements Initializable {
 
     @FXML
     public void initialLogin() throws SQLException, IOException {
+        if(!EmailValidator.isValid(emailField.getText())){
+            statusUpdateLabel.setText("Invalid email format!");
+            System.out.println("da");
+            return;
+        }
+        statusUpdateLabel.setText("");
+        mainContainer.getChildren().remove(statusUpdateLabel);
         accountExists = DatabaseAccess.checkIfEmailExists(emailField.getText());
         if(accountExists){
             loginLabel.setText("Login");
@@ -65,7 +73,6 @@ public class LoginController implements Initializable {
             loginLabel.setText("Register");
             mainContainer.getChildren().remove(initialLoginButton);
             mainContainer.getChildren().addAll(usernameField, passwordField, reenterpasswordField, registerButton, statusUpdateLabel);
-            register();
         }
     }
 
@@ -75,17 +82,34 @@ public class LoginController implements Initializable {
             login();
         }
         else{
+            if(!EmailValidator.isValid(emailField.getText())){
+                statusUpdateLabel.setText("Invalid email format!");
+                return;
+            }
             if(!Objects.equals(passwordField.getText(), reenterpasswordField.getText())){
                 statusUpdateLabel.setText("Passwords are not the same");
                 reenterpasswordField.requestFocus();
                 return;
             }
-            DatabaseAccess.registerUser(emailField.getText(), passwordField.getText(), usernameField.getText());
+            if(passwordField.getText().isEmpty()){
+                statusUpdateLabel.setText("Must enter a password!");
+                return;
+            }
+            if(usernameField.getText().isEmpty()){
+                statusUpdateLabel.setText("Must enter an username!");
+                return;
+            }
+            user = DatabaseAccess.registerUser(emailField.getText(), passwordField.getText(), usernameField.getText());
+            loadMainApp(user);
         }
     }
 
     @FXML
     public void login() throws SQLException, IOException {
+        if(!EmailValidator.isValid(emailField.getText())){
+            statusUpdateLabel.setText("Invalid email format!");
+            return;
+        }
         if(DatabaseAccess.checkIfEmailExists(emailField.getText())){
             user = DatabaseAccess.attemptLogin(emailField.getText(), passwordField.getText());
             if (user != null) {
@@ -126,7 +150,7 @@ public class LoginController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-        mainContainer.getChildren().removeAll(usernameField, passwordField, reenterpasswordField, loginButton, registerButton, statusUpdateLabel);
+        mainContainer.getChildren().removeAll(usernameField, passwordField, reenterpasswordField, loginButton, registerButton);
         try {
             DatabaseAccess.startConnection();
         } catch (SQLException e) {

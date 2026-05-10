@@ -57,3 +57,19 @@
 .combo-box .arrow-button {
     -fx-background-color: transparent !important;
 }
+
+#backButton {
+    -fx-background-color: #404040;
+}
+
+#backButton:hover {
+    -fx-background-color: #5c5c5c;
+}
+
+#userButton {
+        -fx-background-color: #404040;
+}
+
+#userButton:hover {
+        -fx-background-color: #5c5c5c;
+}
