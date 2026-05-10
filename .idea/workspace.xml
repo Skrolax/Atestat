@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="users can now select different ratings and if the review is anonymous or not when submitting">
+    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="added user page, users can now add their profile picture, and the profile picture will get updated to the database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/PhotoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/PhotoManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/ReviewContainerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/ReviewContainerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/UserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/UserPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/review_container.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/review_container.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/user_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/user_page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778416941717</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added user page, users can now add their profile picture, and the profile picture will get updated to the database">
+      <option name="closed" value="true" />
+      <created>1778426401475</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1778426401475</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,6 +277,7 @@
     <MESSAGE value="users can add reviews" />
     <MESSAGE value="added back button, now user can go back to the previous scenes" />
     <MESSAGE value="users can now select different ratings and if the review is anonymous or not when submitting" />
-    <option name="LAST_COMMIT_MESSAGE" value="users can now select different ratings and if the review is anonymous or not when submitting" />
+    <MESSAGE value="added user page, users can now add their profile picture, and the profile picture will get updated to the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user page, users can now add their profile picture, and the profile picture will get updated to the database" />
   </component>
 </project>

@@ -35,6 +35,7 @@ public class ReviewContainerController implements Initializable {
     @FXML Label ratingLabel;
     @FXML Label reviewTextLabel;
     @FXML Label reviewDateLabel;
+    @FXML Label companyNameLabel;
 
     public void setReviewContainer(Review review, CompanyPageController companyPageController, MainController mainController){
         if(review.isAnonymous()){
@@ -46,6 +47,19 @@ public class ReviewContainerController implements Initializable {
         ratingLabel.setText("Rating: " + review.getRating());
         reviewTextLabel.setText(review.getReviewText());
         reviewDateLabel.setText("Date: " + review.getReviewDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+    }
+
+    public void setReviewContainer(Review review, UserPageController userPageController, MainController mainController){
+        if(review.isAnonymous()){
+            usernameLabel.setText("Anonymous user");
+        }
+        else{
+            usernameLabel.setText(review.getUserName());
+        }
+        ratingLabel.setText("Rating: " + review.getRating());
+        reviewTextLabel.setText(review.getReviewText());
+        reviewDateLabel.setText("Date: " + review.getReviewDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+        companyNameLabel.setText("Company: " + review.getCompanyName());
     }
 
     @Override

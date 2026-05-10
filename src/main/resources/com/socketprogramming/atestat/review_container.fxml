@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -9,8 +9,11 @@
    <children>
       <HBox id="headerHBox" fx:id="headerHBox" alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="1.7976931348623157E308" prefHeight="60.0" spacing="15.0">
          <children>
-            <ImageView id="userImageView" fx:id="userImageView" fitHeight="50.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true" />
-            <Label id="usernameLabel" fx:id="usernameLabel" prefHeight="30.0" prefWidth="602.0" text="Username: " />
+            <Label id="usernameLabel" fx:id="usernameLabel" prefHeight="30.0" prefWidth="135.0" text="Username: ">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Label>
+            <Label fx:id="companyNameLabel" prefHeight="17.0" prefWidth="175.0" textFill="WHITE" />
             <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label id="ratingLabel" fx:id="ratingLabel" text="Rating: " />

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
@@ -9,6 +10,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -19,32 +21,90 @@
                 <Font name="Candara Bold" size="21.0" />
             </font>
         </Label>
-        <HBox id="companyContainerHBox" fx:id="userContainerHBox" alignment="CENTER" prefHeight="0.0" prefWidth="1000.0" spacing="10.0" VBox.vgrow="NEVER">
+        <HBox id="companyContainerHBox" fx:id="userContainerHBox" alignment="CENTER" prefHeight="0.0" prefWidth="1000.0" VBox.vgrow="NEVER">
             <children>
-                <VBox id="leftCompanyContainerVBox" fx:id="leftUserContainerVBox" alignment="CENTER" prefHeight="221.0" prefWidth="271.0" spacing="10.0">
+                <VBox id="leftCompanyContainerVBox" fx:id="leftUserContainerVBox" alignment="CENTER" prefHeight="253.0" prefWidth="552.0" spacing="10.0">
                     <children>
-                        <ImageView id="leftCompanyContainerImageView" fx:id="leftUserContainerImageView" fitHeight="196.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="leftCompanyContainerImageView" fx:id="leftUserContainerImageView" fitHeight="260.0" fitWidth="332.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../photos/default-avatar-icon-of-social-media-user-vector.jpg" />
                      </image></ImageView>
-                  <Button fx:id="changePhotoButton" mnemonicParsing="false" onAction="#changeProfileImage" prefHeight="36.0" prefWidth="260.0" text="Change Profile Photo" />
+                  <Button fx:id="changePhotoButton" mnemonicParsing="false" onAction="#changeProfileImage" prefHeight="36.0" prefWidth="260.0" text="Change Profile Photo">
+                     <font>
+                        <Font name="Calisto MT" size="12.0" />
+                     </font></Button>
                     </children>
                     <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </HBox.margin>
                 </VBox>
-            <VBox prefHeight="251.0" prefWidth="705.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="233.0" prefWidth="588.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Change username:" textFill="WHITE" />
-                  <TextField fx:id="changeUsernameTextField" />
-                  <Label text="Change password:" textFill="WHITE" />
-                  <PasswordField fx:id="changePasswordPasswordField" />
-                  <Label text="Re-enter password:" textFill="WHITE" />
-                  <PasswordField fx:id="reenterPasswordChangePasswordField" />
-                  <Button fx:id="saveChangesButton" mnemonicParsing="false" text="Save Changes" />
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Change username:" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Calisto MT" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="23.0" prefWidth="697.0">
+                     <children>
+                        <TextField fx:id="changeUsernameTextField" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="240.0" promptText="enter the new username" />
+                        <Label prefHeight="16.0" prefWidth="0.0" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Change password:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox fx:id="enterPasswordHBox" alignment="CENTER" prefHeight="32.0" prefWidth="697.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="16.0" prefWidth="88.0" />
+                        <StackPane prefHeight="150.0" prefWidth="240.0">
+                           <children>
+                              <PasswordField fx:id="changePasswordPasswordField" alignment="CENTER" prefHeight="25.0" prefWidth="240.0" promptText="enter the new password" />
+                              <TextField fx:id="toggledPasswordTextField" alignment="CENTER" prefWidth="240.0" StackPane.alignment="CENTER" />
+                           </children>
+                        </StackPane>
+                        <CheckBox fx:id="togglePasswordCheckBox" mnemonicParsing="false" text="see password" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Re-enter password:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox fx:id="reenterPasswordHBox" alignment="CENTER" prefHeight="23.0" prefWidth="697.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="16.0" prefWidth="88.0" />
+                        <StackPane prefHeight="150.0" prefWidth="240.0">
+                           <children>
+                              <PasswordField fx:id="reenterPasswordChangePasswordField" alignment="CENTER" prefHeight="25.0" prefWidth="240.0" promptText="re-enter the new password" />
+                              <TextField fx:id="toggledRePasswordTextField" alignment="CENTER" prefWidth="240.0" StackPane.alignment="CENTER" />
+                           </children>
+                        </StackPane>
+                        <CheckBox fx:id="toggleRePasswordCheckBox" mnemonicParsing="false" text="see password" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="61.0" prefWidth="498.0">
+                     <children>
+                        <Label prefHeight="16.0" prefWidth="0.0" />
+                        <Button fx:id="saveChangesButton" alignment="CENTER" mnemonicParsing="false" onAction="#saveChanges" prefHeight="25.0" prefWidth="98.0" text="Save Changes">
+                           <font>
+                              <Font name="Calisto MT" size="12.0" />
+                           </font></Button>
+                     </children>
+                  </HBox>
                </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
             </VBox>
             </children></HBox>
+      <HBox alignment="CENTER" style="-fx-background-color: #2b2b2b;" VBox.vgrow="NEVER">
+         <children>
+            <Label fx:id="updateStatusLabel" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="RED" />
+         </children>
+      </HBox>
         <HBox id="reviewLabel" fx:id="reviewTitleHBox" alignment="CENTER" maxHeight="28.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
             <children>
                 <Label fx:id="reviewTitleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="29.0" prefWidth="97.0" text="Reviews" textAlignment="CENTER" textFill="WHITE">

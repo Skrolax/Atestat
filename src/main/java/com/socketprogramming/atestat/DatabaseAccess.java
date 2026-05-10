@@ -11,8 +11,6 @@ public class DatabaseAccess {
     private static ResultSet resultSet;
     private static int update;
 
-    // DATABASE CONNECTIONS
-
     public static void startConnection() throws SQLException {
 
         connection = DriverManager.getConnection(
@@ -24,12 +22,6 @@ public class DatabaseAccess {
     public static void closeConnection() throws SQLException {
         connection.close();
     }
-
-    // LOGIN AND REGISTER
-
-    /*public static User loginUser(){
-
-    }*/
 
     public static void addReview(int userID, int companyID, String reviewText, float rating, boolean isAnonymous) throws SQLException {
         preparedStatement = connection.prepareStatement(
@@ -249,6 +241,24 @@ public class DatabaseAccess {
             return resultSet.getBytes("Photo_Byte");
         }
         return null;
+    }
+
+    public static void updateUserName(int userID, String username) throws SQLException {
+        preparedStatement = connection.prepareStatement(
+                "UPDATE user SET Name = ? WHERE userID = ?"
+        );
+        preparedStatement.setString(1, username);
+        preparedStatement.setInt(2, userID);
+        update = preparedStatement.executeUpdate();
+    }
+
+    public static void updateUserPassword(int userID, String password) throws SQLException {
+        preparedStatement = connection.prepareStatement(
+                "UPDATE user SET Password = ? WHERE userID = ?"
+        );
+        preparedStatement.setString(1, password);
+        preparedStatement.setInt(2, userID);
+        update = preparedStatement.executeUpdate();
     }
 
 
