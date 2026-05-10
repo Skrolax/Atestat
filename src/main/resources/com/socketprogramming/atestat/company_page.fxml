@@ -17,9 +17,9 @@
             <Font name="Candara Bold" size="21.0" />
          </font>
       </Label>
-      <HBox id="companyContainerHBox" fx:id="companyContainerHBox" alignment="CENTER" prefHeight="0.0" prefWidth="1000.0" VBox.vgrow="NEVER">
+      <HBox id="companyContainerHBox" fx:id="companyContainerHBox" alignment="CENTER" prefHeight="0.0" prefWidth="1000.0" spacing="10.0" VBox.vgrow="NEVER">
          <children>
-            <VBox id="leftCompanyContainerVBox" fx:id="leftCompanyContainerVBox" prefHeight="200.0" prefWidth="100.0">
+            <VBox id="leftCompanyContainerVBox" fx:id="leftCompanyContainerVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                <children>
                   <ImageView id="leftCompanyContainerImageView" fx:id="leftCompanyContainerImageView" fitHeight="196.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true" />
                   <Label id="leftContainerRatingLabel" fx:id="leftContainerRatingLabel" alignment="CENTER" prefHeight="18.0" prefWidth="262.0" text="TOTAL RATING:" textAlignment="CENTER" textFill="WHITE" />

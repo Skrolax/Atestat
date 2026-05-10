@@ -145,13 +145,13 @@ public class CompanyPageController implements Initializable {
 
     }
 
-    private FXMLLoader loadUserPage(User user){
+   /* private FXMLLoader loadUserPage(User user){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("user_page.fxml"));
         try {
             Parent view = loader.load();
 
             UserPageController userPageController = loader.getController();
-            userPageController.setUserPage(this.mainController, user);
+            //userPageController.setUserPage(this.mainController, user);
             mainController.appBorderPane.setCenter(view);
         } catch (IOException e) {
             e.printStackTrace();
@@ -159,7 +159,7 @@ public class CompanyPageController implements Initializable {
             throw new RuntimeException(e);
         }
         return loader;
-    }
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

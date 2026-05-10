@@ -66,6 +66,45 @@ public class MainController implements Initializable {
         return loader;
     }
 
+    boolean onUserPage = false;
+
+    @FXML
+    public void loadUserPage() {
+
+        if (onUserPage) {
+            return;
+        }
+
+        if (appBorderPane.getCenter() != null) {
+            historySceneStack.push((Parent) appBorderPane.getCenter());
+            historyServiceStack.push(servicesComboBox.getSelectionModel().getSelectedItem());
+        }
+
+        navigationInProgress = true;
+        try {
+            servicesComboBox.getSelectionModel().clearSelection();
+            servicesComboBox.setSkin(new ComboBoxListViewSkin<>(servicesComboBox));
+        } finally {
+            navigationInProgress = false;
+        }
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("user_page.fxml"));
+        try {
+            Parent view = loader.load();
+
+            UserPageController userPageController = loader.getController();
+            userPageController.setUserPage(this, this.user);
+
+            appBorderPane.setCenter(view);
+            backButton.setVisible(true);
+
+            onUserPage = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     public void goBack() {
         if (historySceneStack.isEmpty()) {
@@ -73,6 +112,7 @@ public class MainController implements Initializable {
         }
 
         navigationInProgress = true;
+        onUserPage = false;
 
         try {
             Parent previousView = historySceneStack.pop();
@@ -82,6 +122,7 @@ public class MainController implements Initializable {
 
             if (previousService == null) {
                 servicesComboBox.getSelectionModel().clearSelection();
+                servicesComboBox.setSkin(new ComboBoxListViewSkin<>(servicesComboBox));
             } else {
                 servicesComboBox.getSelectionModel().select(previousService);
             }
@@ -116,6 +157,7 @@ public class MainController implements Initializable {
 
                 historySceneStack.push((Parent) appBorderPane.getCenter());
                 historyServiceStack.push(oldValue);
+                onUserPage = false;
 
                 FXMLLoader loader = loadCompaniesPage();
                 if (loader != null) {
@@ -134,7 +176,4 @@ public class MainController implements Initializable {
         });
     }
 
-    private void connectToDataBase() throws SQLException {
-        DatabaseAccess.startConnection();
-    }
 }

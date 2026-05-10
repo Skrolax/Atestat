@@ -229,6 +229,28 @@ public class DatabaseAccess {
         return user;
     }
 
+    public static void updateUserPhoto(int userID, byte[] photoByte) throws SQLException {
+        preparedStatement = connection.prepareStatement(
+                "UPDATE user SET Photo_Byte = ? WHERE userID = ?"
+        );
+        preparedStatement.setBytes(1, photoByte);
+        preparedStatement.setInt(2, userID);
+        update = preparedStatement.executeUpdate();
+
+    }
+
+    public static byte[] getUserPhoto(int userID) throws SQLException {
+        preparedStatement = connection.prepareStatement(
+                "SELECT Photo_Byte FROM user WHERE UserID = ?"
+        );
+        preparedStatement.setInt(1, userID);
+        resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()) {
+            return resultSet.getBytes("Photo_Byte");
+        }
+        return null;
+    }
+
 
 
 }

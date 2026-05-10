@@ -1,30 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox fx:id="userPageVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.UserPageController">
+<VBox id="companyPageVBox" fx:id="userPageVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="1000.0" prefHeight="0.0" prefWidth="0.0" stylesheets="@../../../css/companyPageStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.UserPageController">
     <children>
-        <HBox fx:id="userContainerHBox" prefHeight="129.0" prefWidth="600.0">
+        <Label fx:id="userNameLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #121212; -fx-border-width: 2px 0 0 0; -fx-border-color: #555555 transparent transparent transparent;" text=" User Name" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <font>
+                <Font name="Candara Bold" size="21.0" />
+            </font>
+        </Label>
+        <HBox id="companyContainerHBox" fx:id="userContainerHBox" alignment="CENTER" prefHeight="0.0" prefWidth="1000.0" spacing="10.0" VBox.vgrow="NEVER">
             <children>
-                <VBox fx:id="leftUserContainerVBox" prefHeight="200.0" prefWidth="100.0">
+                <VBox id="leftCompanyContainerVBox" fx:id="leftUserContainerVBox" alignment="CENTER" prefHeight="221.0" prefWidth="271.0" spacing="10.0">
                     <children>
-                        <ImageView fx:id="leftUserContainerImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="leftCompanyContainerImageView" fx:id="leftUserContainerImageView" fitHeight="196.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../photos/default-avatar-icon-of-social-media-user-vector.jpg" />
+                     </image></ImageView>
+                  <Button fx:id="changePhotoButton" mnemonicParsing="false" onAction="#changeProfileImage" prefHeight="36.0" prefWidth="260.0" text="Change Profile Photo" />
                     </children>
+                    <HBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </HBox.margin>
                 </VBox>
-                <VBox fx:id="rightUserContainerVBox" prefHeight="168.0" prefWidth="406.0" />
+            <VBox prefHeight="251.0" prefWidth="705.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Change username:" textFill="WHITE" />
+                  <TextField fx:id="changeUsernameTextField" />
+                  <Label text="Change password:" textFill="WHITE" />
+                  <PasswordField fx:id="changePasswordPasswordField" />
+                  <Label text="Re-enter password:" textFill="WHITE" />
+                  <PasswordField fx:id="reenterPasswordChangePasswordField" />
+                  <Button fx:id="saveChangesButton" mnemonicParsing="false" text="Save Changes" />
+               </children>
+            </VBox>
             </children></HBox>
-        <ScrollPane fx:id="userReviewScrollPane" prefHeight="274.0" prefWidth="600.0">
+        <HBox id="reviewLabel" fx:id="reviewTitleHBox" alignment="CENTER" maxHeight="28.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
+            <children>
+                <Label fx:id="reviewTitleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="29.0" prefWidth="97.0" text="Reviews" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Candara Bold" size="21.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <ScrollPane id="companyReviewScrollPane" fx:id="userReviewScrollPane" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="1000.0" pannable="true" prefHeight="278.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="598.0">
-                    <children>
-                        <VBox fx:id="userReviewVBox" prefHeight="273.0" prefWidth="600.0" />
-                    </children>
-                </AnchorPane>
+                <VBox id="companyReviewVBox" fx:id="userReviewVBox" alignment="TOP_CENTER" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="1000.0" prefWidth="1038.0" spacing="10.0">
+                    <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                    </padding></VBox>
             </content>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
         </ScrollPane>
     </children>
 </VBox>
