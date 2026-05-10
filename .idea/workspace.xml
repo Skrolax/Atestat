@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="finished the user page, where users can now change their photo, username and password">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/BCrypt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/EmailValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/HashingText.java" afterDir="false" />
+    <list default="true" id="0744237e-2341-45f9-be71-e612ff13fdac" name="Changes" comment="added hash encryption for passwords and email formatting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompaniesPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompaniesPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/CompanyPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/DatabaseAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/UserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socketprogramming/atestat/UserPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/company_page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/user_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/socketprogramming/atestat/user_page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/companyPageStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/companyAndUserPageStylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/mainStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/mainStylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778433086871</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added hash encryption for passwords and email formatting">
+      <option name="closed" value="true" />
+      <created>1778440924717</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1778440924717</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,6 +294,7 @@
     <MESSAGE value="users can now select different ratings and if the review is anonymous or not when submitting" />
     <MESSAGE value="added user page, users can now add their profile picture, and the profile picture will get updated to the database" />
     <MESSAGE value="finished the user page, where users can now change their photo, username and password" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished the user page, where users can now change their photo, username and password" />
+    <MESSAGE value="added hash encryption for passwords and email formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="added hash encryption for passwords and email formatting" />
   </component>
 </project>

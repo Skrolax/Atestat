@@ -49,58 +49,72 @@ public class LoginController implements Initializable {
     public void initialLogin() throws SQLException, IOException {
         if(!EmailValidator.isValid(emailField.getText())){
             statusUpdateLabel.setText("Invalid email format!");
-            System.out.println("da");
             return;
         }
+
         statusUpdateLabel.setText("");
-        mainContainer.getChildren().remove(statusUpdateLabel);
         accountExists = DatabaseAccess.checkIfEmailExists(emailField.getText());
+
+        // 1. Clean the container of all optional fields first to prevent duplicates
+        mainContainer.getChildren().removeAll(
+                initialLoginButton, usernameField, passwordField,
+                reenterpasswordField, loginButton, registerButton, statusUpdateLabel
+        );
+
         if(accountExists){
             loginLabel.setText("Login");
-            mainContainer.getChildren().remove(initialLoginButton);
+            // 2. Add only what is needed for Login
             mainContainer.getChildren().addAll(passwordField, loginButton, statusUpdateLabel);
-            emailField.setOnAction(event -> passwordField.requestFocus());
-            passwordField.requestFocus();
+
             passwordField.setOnAction(event -> {
-                try {
-                    login();
-                } catch (SQLException | IOException e) {
-                    throw new RuntimeException(e);
-                }
+                try { login(); } catch (Exception e) { e.printStackTrace(); }
             });
+            passwordField.requestFocus();
         }
-        else{
+        else {
             loginLabel.setText("Register");
-            mainContainer.getChildren().remove(initialLoginButton);
+            // 3. Add only what is needed for Register
             mainContainer.getChildren().addAll(usernameField, passwordField, reenterpasswordField, registerButton, statusUpdateLabel);
+
+            passwordField.setOnAction(event -> reenterpasswordField.requestFocus());
+            usernameField.requestFocus();
         }
     }
 
     @FXML
     public void register() throws SQLException, IOException {
-        if(DatabaseAccess.checkIfEmailExists(emailField.getText())){
-            login();
+        String email = emailField.getText();
+        String password = passwordField.getText();
+        String username = usernameField.getText();
+        String reenter = reenterpasswordField.getText();
+
+        if (!EmailValidator.isValid(email)) {
+            statusUpdateLabel.setText("Invalid email format!");
+            emailField.requestFocus();
+            return;
         }
-        else{
-            if(!EmailValidator.isValid(emailField.getText())){
-                statusUpdateLabel.setText("Invalid email format!");
-                return;
-            }
-            if(!Objects.equals(passwordField.getText(), reenterpasswordField.getText())){
-                statusUpdateLabel.setText("Passwords are not the same");
-                reenterpasswordField.requestFocus();
-                return;
-            }
-            if(passwordField.getText().isEmpty()){
-                statusUpdateLabel.setText("Must enter a password!");
-                return;
-            }
-            if(usernameField.getText().isEmpty()){
-                statusUpdateLabel.setText("Must enter an username!");
-                return;
-            }
-            user = DatabaseAccess.registerUser(emailField.getText(), passwordField.getText(), usernameField.getText());
+        if (username.isEmpty()) {
+            statusUpdateLabel.setText("Must enter a username!");
+            usernameField.requestFocus();
+            return;
+        }
+        if (password.isEmpty()) {
+            statusUpdateLabel.setText("Must enter a password!");
+            passwordField.requestFocus();
+            return;
+        }
+        if (!password.equals(reenter)) {
+            statusUpdateLabel.setText("Passwords are not the same");
+            reenterpasswordField.requestFocus();
+            return;
+        }
+
+        // Hash the password here or inside DatabaseAccess.registerUser
+        user = DatabaseAccess.registerUser(email, password, username);
+        if (user != null) {
             loadMainApp(user);
+        } else {
+            statusUpdateLabel.setText("Registration failed.");
         }
     }
 
@@ -140,16 +154,33 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loginLabel.setText("Enter your email");
         initialLoginButton.setText("Check");
+
+        // COMBINED: Check email and move focus/change UI
         emailField.setOnAction(actionEvent -> {
             try {
-                if(emailField.getText().isEmpty()){
-                    return;
+                if(!emailField.getText().isEmpty()){
+                    initialLogin();
                 }
-                initialLogin();
             } catch (SQLException | IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         });
+
+        // These can stay here, they just won't do anything until the fields are added to the scene
+        usernameField.setOnAction(e -> passwordField.requestFocus());
+        passwordField.setOnAction(e -> reenterpasswordField.requestFocus());
+
+        // For the login flow (password -> login)
+        // We handle this inside initialLogin to avoid conflicts
+
+        reenterpasswordField.setOnAction(e -> {
+            try {
+                register();
+            } catch (SQLException | IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
         mainContainer.getChildren().removeAll(usernameField, passwordField, reenterpasswordField, loginButton, registerButton);
         try {
             DatabaseAccess.startConnection();
