@@ -125,3 +125,12 @@
 -fx-background-color: #454545;
 }
 
+.label {
+    -fx-font-family: Calisto MT;
+}
+
+.text-field, .password-field {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+

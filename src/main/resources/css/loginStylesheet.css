@@ -1,11 +1,16 @@
-#container{
-
-    -fx-background-color: #1a1a1a;
-
+.text-field, .password-field {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
-#mainContainer{
+.button {
+-fx-background-color: #4d4d4d;
+}
 
-    -fx-background-color: #333333;
+.button:hover{
+-fx-background-color: #454545;
+}
 
+.label {
+    -fx-font-family: Calisto MT;
 }

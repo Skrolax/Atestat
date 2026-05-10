@@ -20,7 +20,7 @@
       </Label>
       <HBox id="companyContainerHBox" fx:id="companyContainerHBox" alignment="CENTER" prefHeight="0.0" prefWidth="1000.0" spacing="10.0" VBox.vgrow="NEVER">
          <children>
-            <VBox id="leftCompanyContainerVBox" fx:id="leftCompanyContainerVBox" alignment="CENTER" prefHeight="222.0" prefWidth="576.0" spacing="10.0" HBox.hgrow="ALWAYS">
+            <VBox id="leftCompanyContainerVBox" fx:id="leftCompanyContainerVBox" alignment="CENTER" prefHeight="298.0" prefWidth="383.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
                   <ImageView id="leftCompanyContainerImageView" fx:id="leftCompanyContainerImageView" fitHeight="260.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,20 +37,47 @@
             </VBox>
             <HBox fx:id="rightCompanyContainerHBox" prefHeight="214.0" prefWidth="746.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER" prefHeight="214.0" prefWidth="400.0">
+                  <VBox alignment="CENTER" prefHeight="318.0" prefWidth="531.0">
                      <children>
-                        <Label fx:id="addressLabel" prefHeight="38.0" prefWidth="388.0" text=" Adress: " textFill="WHITE" VBox.vgrow="ALWAYS" />
-                        <Hyperlink fx:id="websiteHyperlink" prefHeight="38.0" prefWidth="388.0" text="Website: " textFill="WHITE" VBox.vgrow="ALWAYS" />
-                        <Label fx:id="foundedDateLabel" prefHeight="38.0" prefWidth="388.0" text=" Company Founded Date: " textFill="WHITE" VBox.vgrow="ALWAYS" />
+                        <Label fx:id="addressLabel" prefHeight="38.0" prefWidth="388.0" text=" Adress: " textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Calisto MT" size="14.0" />
+                           </font></Label>
+                        <Hyperlink fx:id="websiteHyperlink" prefHeight="38.0" prefWidth="388.0" text="Website: " textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Hyperlink>
+                        <Label fx:id="foundedDateLabel" prefHeight="38.0" prefWidth="388.0" text=" Company Founded Date: " textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                      </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="214.0" prefWidth="545.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label fx:id="businessEmailLabel" prefHeight="38.0" prefWidth="388.0" text=" Business Email: " textFill="WHITE" VBox.vgrow="ALWAYS" />
-                        <Label fx:id="businessPhoneLabel" prefHeight="38.0" prefWidth="388.0" text=" Business Phone Number: " textFill="WHITE" VBox.vgrow="ALWAYS" />
-                        <Label fx:id="customerEmailLabel" prefHeight="38.0" prefWidth="388.0" text=" Customer Service Email: " textFill="WHITE" VBox.vgrow="ALWAYS" />
-                        <Label fx:id="customerPhoneLabel" prefHeight="38.0" prefWidth="388.0" text=" Customer Service Phone Number: " textFill="WHITE" VBox.vgrow="ALWAYS" />
+                        <Label fx:id="businessEmailLabel" prefHeight="38.0" prefWidth="388.0" text=" Business Email: " textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label fx:id="businessPhoneLabel" prefHeight="38.0" prefWidth="388.0" text=" Business Phone Number: " textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label fx:id="customerEmailLabel" prefHeight="38.0" prefWidth="388.0" text=" Customer Service Email: " textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label fx:id="customerPhoneLabel" prefHeight="38.0" prefWidth="388.0" text=" Customer Service Phone Number: " textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                      </children>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
             </HBox>
