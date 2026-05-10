@@ -104,7 +104,7 @@ public class CompanyPageController implements Initializable {
     }
 
     @FXML
-    private void addReview(){
+    private void addReview() throws SQLException {
         companyReviewScrollPane.setVvalue(0.0);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("add_review_container.fxml"));
         try {

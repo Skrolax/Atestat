@@ -1,13 +1,16 @@
 package com.socketprogramming.atestat;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
+import java.net.URL;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
-public class ReviewContainerController {
+public class ReviewContainerController implements Initializable {
 
     public Review getReview() {
         return review;
@@ -45,5 +48,9 @@ public class ReviewContainerController {
         reviewDateLabel.setText("Date: " + review.getReviewDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        reviewTextLabel.setWrapText(true);
+    }
 }
 

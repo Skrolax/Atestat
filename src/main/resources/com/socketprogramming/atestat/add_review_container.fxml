@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
 
 <VBox id="reviewItemContainer" fx:id="reviewItemContainer" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="97.0" minWidth="1000.0" prefWidth="1000.0" spacing="10.0" stylesheets="@../../../css/reviewContainerStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.AddReviewContainerController">
     <children>
       <HBox alignment="TOP_RIGHT" prefHeight="6.0" prefWidth="968.0">
          <children>
+            <CheckBox fx:id="isAnonymousCheckBox" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="18.0" prefWidth="166.0" text="is the review anonymous?" textFill="WHITE" />
+            <Label maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="799.0" HBox.hgrow="ALWAYS" />
             <Button fx:id="closeButton" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeReviewContainer" prefHeight="15.0" prefWidth="2.0" style="-fx-background-color: #1e1e1e;" text="X" textFill="WHITE">
                <font>
                   <Font size="8.0" />
@@ -18,9 +22,9 @@
             </Button>
          </children>
       </HBox>
-        <VBox id="contentVBox" fx:id="contentVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" prefHeight="40.0" prefWidth="968.0" VBox.vgrow="ALWAYS">
+        <VBox id="contentVBox" fx:id="contentVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="968.0" VBox.vgrow="ALWAYS">
             <children>
-            <TextArea id="addReviewTextArea" fx:id="addReviewTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="52.0" prefWidth="968.0" promptText="enter your review">
+            <TextArea id="addReviewTextArea" fx:id="addReviewTextArea" prefHeight="38.0" prefWidth="968.0" promptText="enter your review">
                <font>
                   <Font name="Calisto MT" size="14.0" />
                </font>
@@ -29,8 +33,10 @@
         </VBox>
         <HBox id="footerHBox" fx:id="footerHBox" prefHeight="16.0" prefWidth="968.0" VBox.vgrow="NEVER">
             <children>
-                <Label id="reviewDateLabel" fx:id="reviewDateLabel" prefHeight="33.0" prefWidth="915.0" text="Rating:" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" onAction="#createReview" text="send" HBox.hgrow="NEVER" />
+                <Label id="reviewDateLabel" fx:id="reviewDateLabel" prefHeight="32.0" prefWidth="40.0" text="Rating:" HBox.hgrow="ALWAYS" />
+            <Rating fx:id="ratingElement" prefHeight="32.0" prefWidth="725.0" />
+            <Label fx:id="reviewStatusLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="709.0" textAlignment="CENTER" textFill="#ff1e1e" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#createReview" prefHeight="26.0" prefWidth="42.0" text="send" HBox.hgrow="NEVER" />
             </children>
         </HBox>
     </children>

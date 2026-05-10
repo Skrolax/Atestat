@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox id="reviewItemContainer" fx:id="reviewItemContainer" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="120.0" minWidth="1000.0" prefHeight="150.0" prefWidth="1000.0" spacing="10.0" stylesheets="@../../../css/reviewContainerStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.ReviewContainerController">
+<VBox id="reviewItemContainer" fx:id="reviewItemContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="120.0" minWidth="1000.0" prefWidth="1000.0" spacing="10.0" stylesheets="@../../../css/reviewContainerStylesheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socketprogramming.atestat.ReviewContainerController">
    <children>
       <HBox id="headerHBox" fx:id="headerHBox" alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="1.7976931348623157E308" prefHeight="60.0" spacing="15.0">
          <children>
@@ -18,9 +18,9 @@
             </HBox>
          </children>
       </HBox>
-      <VBox id="contentVBox" fx:id="contentVBox" VBox.vgrow="ALWAYS">
+      <VBox id="contentVBox" fx:id="contentVBox" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
          <children>
-            <Label id="reviewTextLabel" fx:id="reviewTextLabel" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" text="Review content goes here..." wrapText="true" />
+            <Label id="reviewTextLabel" fx:id="reviewTextLabel" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefWidth="968.0" text="Review content goes here..." wrapText="true" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
       <HBox id="footerHBox" fx:id="footerHBox" alignment="CENTER_RIGHT" prefHeight="25.0">
