@@ -55,7 +55,7 @@ public class LoginController implements Initializable {
         statusUpdateLabel.setText("");
         accountExists = DatabaseAccess.checkIfEmailExists(emailField.getText());
 
-        // 1. Clean the container of all optional fields first to prevent duplicates
+
         mainContainer.getChildren().removeAll(
                 initialLoginButton, usernameField, passwordField,
                 reenterpasswordField, loginButton, registerButton, statusUpdateLabel
@@ -63,7 +63,6 @@ public class LoginController implements Initializable {
 
         if(accountExists){
             loginLabel.setText("Login");
-            // 2. Add only what is needed for Login
             mainContainer.getChildren().addAll(passwordField, loginButton, statusUpdateLabel);
 
             passwordField.setOnAction(event -> {
@@ -73,7 +72,6 @@ public class LoginController implements Initializable {
         }
         else {
             loginLabel.setText("Register");
-            // 3. Add only what is needed for Register
             mainContainer.getChildren().addAll(usernameField, passwordField, reenterpasswordField, registerButton, statusUpdateLabel);
 
             passwordField.setOnAction(event -> reenterpasswordField.requestFocus());
@@ -109,7 +107,6 @@ public class LoginController implements Initializable {
             return;
         }
 
-        // Hash the password here or inside DatabaseAccess.registerUser
         user = DatabaseAccess.registerUser(email, password, username);
         if (user != null) {
             loadMainApp(user);
@@ -155,7 +152,6 @@ public class LoginController implements Initializable {
         loginLabel.setText("Enter your email");
         initialLoginButton.setText("Check");
 
-        // COMBINED: Check email and move focus/change UI
         emailField.setOnAction(actionEvent -> {
             try {
                 if(!emailField.getText().isEmpty()){
@@ -166,12 +162,8 @@ public class LoginController implements Initializable {
             }
         });
 
-        // These can stay here, they just won't do anything until the fields are added to the scene
         usernameField.setOnAction(e -> passwordField.requestFocus());
         passwordField.setOnAction(e -> reenterpasswordField.requestFocus());
-
-        // For the login flow (password -> login)
-        // We handle this inside initialLogin to avoid conflicts
 
         reenterpasswordField.setOnAction(e -> {
             try {

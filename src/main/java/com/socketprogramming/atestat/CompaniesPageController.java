@@ -45,11 +45,10 @@ public class CompaniesPageController implements Initializable {
 
         Label companyServices = new Label(company.getServicesString());
         companyServices.setWrapText(true);
-        companyServices.setPrefWidth(400); // Set a reasonable width for the text to "hit" before wrapping
-        companyServices.setMinWidth(0);   // Prevents it from pushing the HBox wider than the screen
+        companyServices.setPrefWidth(400);
+        companyServices.setMinWidth(0);
 
-// Force the rightContainer to cap the width
-        rightContainer.setMaxWidth(500); // Adjust this number to fit your UI
+        rightContainer.setMaxWidth(500);
         rightContainer.setMinWidth(0);
         HBox.setHgrow(rightContainer, Priority.ALWAYS);
 

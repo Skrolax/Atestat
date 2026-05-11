@@ -114,50 +114,8 @@ public class CompanyPageController implements Initializable {
             e.printStackTrace();
         }
 
-        /*VBox mainContainer = new VBox();
-        mainContainer.getStylesheets().add(getClass().getResource("/css/addReviewContainerStylesheet.css").toExternalForm());
-        mainContainer.minHeight(40);
-        mainContainer.setPrefWidth(1000);
-        mainContainer.setPrefHeight(120);
-        mainContainer.setId("mainContainer");
-
-        HBox topContainer = new HBox();
-        TextField addReviewTextField = new TextField();
-        Button closeContainerButton = new Button("X");
-        addReviewTextField.setText("Enter your review");
-
-        addReviewTextField.setPrefWidth(950);
-
-
-        HBox bottomContainer = new HBox();
-        Label ratingLabel = new Label();
-        ratingLabel.setText("Rating: ");
-        Rating rating = new Rating(5);
-        Button sendButton = new Button("Send");
-
-        topContainer.getChildren().addAll(addReviewTextField, closeContainerButton);
-        bottomContainer.getChildren().addAll(ratingLabel, rating, sendButton);
-        mainContainer.getChildren().addAll(topContainer, bottomContainer);
-
-        companyReviewVBox.getChildren().addFirst(mainContainer);*/
 
     }
-
-   /* private FXMLLoader loadUserPage(User user){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("user_page.fxml"));
-        try {
-            Parent view = loader.load();
-
-            UserPageController userPageController = loader.getController();
-            //userPageController.setUserPage(this.mainController, user);
-            mainController.appBorderPane.setCenter(view);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return loader;
-    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
