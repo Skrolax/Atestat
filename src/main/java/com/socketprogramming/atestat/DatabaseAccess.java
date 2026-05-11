@@ -14,9 +14,7 @@ public class DatabaseAccess {
     public static void startConnection() throws SQLException {
 
         connection = DriverManager.getConnection(
-                "jdbc:mysql://127.0.0.1:3306/atestatdb",
-                "root",
-                "NoPasswordReally"
+                "jdbc:sqlite:C:/Users/nedel/OneDrive/Desktop/Programare/The Real Deal/Atestat/sqlite.db"
         );
     }
     public static void closeConnection() throws SQLException {
@@ -150,7 +148,7 @@ public class DatabaseAccess {
                     resultSet.getString("Name"),
                     resultSet.getString("Password"),
                     resultSet.getString("Email"),
-                    resultSet.getDate("Join_Date").toLocalDate(),
+                    resultSet.getString("Join_Date"),
                     resultSet.getBytes("Photo_Byte")
             );
         }
@@ -197,7 +195,7 @@ public class DatabaseAccess {
                         resultSet.getString("Name"),
                         email,
                         hashedPassword,
-                        resultSet.getDate("Join_Date").toLocalDate(),
+                        resultSet.getString("Join_Date"),
                         resultSet.getBytes("Photo_Byte")
                 );
             }

@@ -9,6 +9,7 @@ module com.socketprogramming.atestat {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires java.desktop;
+    requires org.xerial.sqlitejdbc;
 
     opens com.socketprogramming.atestat to javafx.fxml;
     exports com.socketprogramming.atestat;

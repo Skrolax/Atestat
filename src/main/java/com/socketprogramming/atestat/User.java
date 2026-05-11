@@ -1,7 +1,5 @@
 package com.socketprogramming.atestat;
 
-import javafx.scene.image.Image;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -38,10 +36,10 @@ public class User {
     public ArrayList<Review> getReviews() {
         return reviews;
     }
-    public LocalDate getJoinDate() {
+    public String getJoinDate() {
         return joinDate;
     }
-    public void setJoinDate(LocalDate joinDate) {
+    public void setJoinDate(String joinDate) {
         this.joinDate = joinDate;
     }
 
@@ -55,11 +53,11 @@ public class User {
     private String email;
 
 
-    private LocalDate joinDate;
+    private String joinDate;
     private byte[] photo;
     private ArrayList<Review> reviews;
 
-    User(int userID, String name, String password, String email, LocalDate joinDate, byte[] photo){
+    User(int userID, String name, String password, String email, String joinDate, byte[] photo){
         this.userID = userID;
         this.name = name;
         this.password = password;
