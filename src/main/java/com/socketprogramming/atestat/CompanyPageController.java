@@ -113,8 +113,6 @@ public class CompanyPageController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override

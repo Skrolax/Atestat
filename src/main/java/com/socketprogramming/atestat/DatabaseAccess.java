@@ -12,11 +12,11 @@ public class DatabaseAccess {
     private static int update;
 
     public static void startConnection() throws SQLException {
-
         connection = DriverManager.getConnection(
                 "jdbc:sqlite:C:/Users/nedel/OneDrive/Desktop/Programare/The Real Deal/Atestat/sqlite.db"
         );
     }
+
     public static void closeConnection() throws SQLException {
         connection.close();
     }

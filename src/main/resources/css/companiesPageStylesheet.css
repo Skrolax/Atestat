@@ -13,19 +13,19 @@
     -fx-padding: 15px;
     -fx-spacing: 20px;
     -fx-cursor: hand;
-    -fx-max-width: 1500px; /* Keeps them from getting too wide on big screens */
+    -fx-max-width: 1500px;
 
 }
 
 .company-container .label{
 
-    -fx-text-fill: #f7f7f7 !important; /* Forces all text to light grey/white */
+    -fx-text-fill: #f7f7f7 !important;
     -fx-font-family: "Candara" !important;
-    -fx-font-size: 16px; /* Default size for details */
+    -fx-font-size: 16px;
 }
 
 .company-container:hover .label {
-    -fx-text-fill: white !important; /* Change to your preferred hover color (e.g., Blue) */
+    -fx-text-fill: white !important;
 }
 
 

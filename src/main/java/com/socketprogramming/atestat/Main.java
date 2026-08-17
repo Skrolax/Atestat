@@ -21,6 +21,8 @@ public class Main extends Application {
         stage.show();
     }
 
+    //puta lu hektor
+
     public static void main(String[] args) {
         launch();
     }

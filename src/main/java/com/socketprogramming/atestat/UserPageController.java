@@ -95,6 +95,7 @@ public class UserPageController implements Initializable {
                 leftUserContainerImageView.setImage(PhotoManager.getImage(imageByte));
             });
         }
+
     }
 
     @Override

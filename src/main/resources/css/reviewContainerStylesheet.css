@@ -1,6 +1,6 @@
-/* The Card Container */
+
 #reviewItemContainer {
-    -fx-background-color: #1e1e1e; /* Dark background */
+    -fx-background-color: #1e1e1e;
     -fx-background-radius: 10;
     -fx-border-color: #333333;
     -fx-border-width: 1;
@@ -12,7 +12,6 @@
     -fx-background-color: #262626;
 }
 
-/* Individual Label Styling using matching IDs */
 #usernameLabel {
     -fx-text-fill: #ffffff;
     -fx-font-family: "Candara";
@@ -21,19 +20,19 @@
 }
 
 #ratingLabel {
-    -fx-text-fill: #ffcc00; /* Gold */
+    -fx-text-fill: #ffcc00;
     -fx-font-family: "Candara";
     -fx-font-weight: bold;
 }
 
 #reviewTextLabel {
-    -fx-text-fill: #d0d0d0; /* Light Gray */
+    -fx-text-fill: #d0d0d0;
     -fx-font-family: "Candara";
     -fx-font-size: 14px;
 }
 
 #reviewDateLabel {
-    -fx-text-fill: #888888; /* Muted Gray */
+    -fx-text-fill: #888888;
     -fx-font-family: "Candara";
     -fx-font-style: italic;
     -fx-font-size: 12px;

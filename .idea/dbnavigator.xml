@@ -305,6 +305,7 @@ UPDATE "company" SET
   "Business_Email" = 'enterprise@titanit.fake', "Customer_Service_Email" = 'tech@titanit.fake',
   "Business_Phone_Number" = '+39-06-555-2000', "Customer_Service_Phone_Number" = '+39-800-TITAN'
 WHERE "CompanyID" = 20;]]></console>
+      <console name="test2" type="STANDARD" schema="main" session="Main"><![CDATA[Select * from company]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
